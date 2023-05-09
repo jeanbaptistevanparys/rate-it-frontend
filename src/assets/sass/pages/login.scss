@@ -1,0 +1,91 @@
+@use '../constraints.scss';
+
+main.login {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    color: white;
+    section {
+        width: 66vw;
+        background-color: constraints.$color-rate-it-background-secundary;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        h1 {
+            margin-top: 2rem;
+            width: 100%;
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 0;
+            color: constraints.$color-rate-it-green;
+        }
+        h2 {
+            width: 100%;
+            text-align: center;
+            font-size: 1.5rem;
+            margin-top: 0;
+        }
+        img {
+            margin: auto;
+            display: block;
+            margin-top: 2rem;
+            border-radius: 1rem;
+        }
+    }
+    aside {
+        width: 34vw;
+        background-color: constraints.$color-rate-it-background;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        h2 {
+            width: 100%;
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            input {
+                width: 80%;
+                font-size: 1.3rem;
+                margin-bottom: 1rem;
+                padding: 0.5rem;
+                border-radius: 0.5rem;
+                border: none;
+                background-color:constraints.$color-rate-it-background-secundary;
+                color: white;
+            }
+            button {
+                width: 80%;
+                margin-bottom: 1rem;
+                padding: 0.5rem;
+                border-radius: 0.5rem;
+                border: none;
+                background-color: constraints.$color-rate-it-green;
+                color: white;
+                font-size: 1.5rem;
+                font-weight: bold;
+                
+            }
+        }
+        p {
+            width: 100%;
+            text-align: center;
+            margin-top: 1rem;
+    
+            .link {
+                color: constraints.$color-rate-it-green;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+
+

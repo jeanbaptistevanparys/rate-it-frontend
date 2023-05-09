@@ -3,11 +3,13 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "vite",
+    "dev": "vite && sass -w ./src/assets/sass/screen.scss ./src/assets/css/screen.css",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "sass" : "sass -w ./src/assets/sass/screen.scss ./src/assets/css/screen.css"
   },
   "dependencies": {
+    "sass": "^1.62.1",
     "vue": "^3.2.47",
     "vue-router": "^4.1.6"
   },
