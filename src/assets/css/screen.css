@@ -29,7 +29,7 @@ main.login section h2 {
   width: 100%;
   text-align: center;
   font-size: 1.5rem;
-  margin-top: 0;
+  margin-top: 1rem;
 }
 main.login section img {
   margin: auto;
