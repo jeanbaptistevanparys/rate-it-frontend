@@ -8,14 +8,13 @@
                 Random meme for you
             </h2>
 
-            <img src="https://i.imgflip.com/4/30b1gx.jpg" alt="meme" width="500" height="500">
-            <!-- TODO INSER RANDOM MEME -->
+            <meme></meme>
         </section>
 
         <aside>
 
             <h2>Sign up</h2>
-            <form action="@submit.prevent" method="post">
+            <form @submit.prevent method="post">
                 <input type="text" placeholder="username">
 
                 <input type="email" name="email" id="email" placeholder="E-mail">
@@ -25,7 +24,7 @@
 
                 <button type="submit">Register</button>
             </form>
-            <p>Already have an acount?  <RouterLink class="link" to="/Login">Sign in</RouterLink> </p>
+            <p>Already have an acount?  <RouterLink class="link" to="/login">Sign in</RouterLink> </p>
 
         </aside>
 
@@ -33,10 +32,12 @@
 </template>
 <script>
 import { RouterLink } from 'vue-router'
+import Meme from '../modules/Meme/components/Meme.vue';
 export default {
     name: 'RegisterView',
     components: {
-        RouterLink
+        RouterLink,
+        Meme
     }
 }
 </script>

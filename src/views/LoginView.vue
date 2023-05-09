@@ -8,7 +8,7 @@
                 Random meme for you
             </h2>
 
-            <img src="https://i.imgflip.com/4/30b1gx.jpg" alt="meme" width="500" height="500">
+            <meme></meme>
             <!-- TODO INSER RANDOM MEME -->
         </section>
 
@@ -22,18 +22,22 @@
 
                 <button type="submit">Login</button>
             </form>
-            <p>Don't have an account? <RouterLink class="link" to="/Register">Create Acount</RouterLink> </p>
+            <p>Don't have an account? <RouterLink class="link" to="/register">Create Acount</RouterLink>
+            </p>
 
         </aside>
 
     </main>
 </template>
 <script>
-import { RouterLink } from 'vue-router'
+import { RouterLink } from 'vue-router';
+import Meme from '../modules/Meme/components/Meme.vue';
 export default {
     name: 'LoginView',
     components: {
-        RouterLink
-    }
+    RouterLink,
+    Meme
+}
+
 }
 </script>
