@@ -86,6 +86,14 @@ main.login aside p .link {
   text-decoration: none;
 }
 
+main.home {
+  height: 92vh;
+  background-color: rgb(55, 58, 66);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 header.top {
   width: 100vw;
   height: 8vh;
@@ -127,6 +135,7 @@ header.top nav button {
   background-color: rgb(32, 180, 137);
   color: white;
   font-size: 1rem;
+  cursor: pointer;
 }
 header.top nav button::before {
   content: "⊕";
@@ -137,6 +146,51 @@ header.top nav button::before {
 }
 header.top nav a {
   width: 3rem;
+}
+
+aside.topics {
+  border-right: 0.3rem solid rgb(37, 38, 46);
+  border-bottom: 0.3rem solid rgb(37, 38, 46);
+  border-radius: 0.5rem;
+  position: relative;
+  color: white;
+}
+aside.topics ul li {
+  padding: 0.1rem;
+}
+aside.topics ul li:hover {
+  background-color: rgb(37, 38, 46);
+}
+aside.topics article {
+  padding: 1rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+aside.topics article h3 {
+  font-size: 1rem;
+}
+aside.topics article p {
+  font-size: 0.8rem;
+}
+aside.topics article.selected h3 {
+  color: rgb(32, 180, 137);
+}
+aside.topics button {
+  padding: 0.5rem;
+  border-radius: 0.8rem;
+  border: none;
+  background-color: rgb(32, 180, 137);
+  color: white;
+  font-size: 0.8rem;
+  width: 4rem;
+  cursor: pointer;
+  position: absolute;
+  right: 0rem;
+  bottom: -1.3rem;
+  background-color: rgb(32, 180, 137);
 }
 
 /*# sourceMappingURL=screen.css.map */

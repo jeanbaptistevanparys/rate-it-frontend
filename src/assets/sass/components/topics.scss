@@ -1,0 +1,58 @@
+@use '../constraints.scss';
+
+aside.topics {
+	border-right: 0.3rem solid constraints.$color-rate-it-background;
+	border-bottom: 0.3rem solid constraints.$color-rate-it-background;
+	border-radius: 0.5rem;
+	position: relative;
+	color: white;
+
+	ul{
+        li{
+            padding: 0.1rem;
+            &:hover{
+                background-color: constraints.$color-rate-it-background;
+            }
+        }
+        
+    }
+
+	article {
+		padding: 1rem;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 0.5rem;
+		cursor: pointer;
+		h3 {
+			font-size: 1rem;
+		}
+		p {
+			font-size: 0.8rem;
+		}
+
+        &.selected {
+            h3 {
+                color: constraints.$color-rate-it-green;
+            }
+        }
+	}
+
+
+	button {
+		padding: 0.5rem;
+		border-radius: 0.8rem;
+		border: none;
+		background-color: constraints.$color-rate-it-green;
+		color: white;
+		font-size: 0.8rem;
+        width: 4rem;
+
+
+        cursor: pointer;
+		position: absolute;
+		right: 0rem;
+		bottom: -1.3rem;
+		background-color: constraints.$color-rate-it-green;
+	}
+}
