@@ -1,0 +1,61 @@
+@use '../constraints.scss';
+
+header.top {
+	width: 100vw;
+	height: 8vh;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row;
+	align-items: center;
+	background-color: constraints.$color-rate-it-background;
+
+	h1 {
+		margin-left: 2rem;
+		font-size: 2rem;
+		a {
+			text-decoration: none;
+			color: constraints.$color-rate-it-green;
+		}
+	}
+
+    nav{
+        width: 25%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-right: 2rem;
+
+        div.lang{
+            width: 4rem;
+            text-decoration: none;
+            color: gray;
+            a{
+                text-decoration: none;
+                color: gray;
+            }
+        }
+
+        button {
+            padding: 0.5rem;
+            border-radius: 0.8rem;
+            border: none;
+            background-color: constraints.$color-rate-it-green;
+            color: white;
+            font-size: 1rem;
+            &::before{
+                content: "⊕";
+                font-size: 1.3rem;
+                line-height: 0;
+                padding-right: 0.2rem;
+                display: inline-block;
+
+            }
+        }
+
+
+        a{
+            width: 3rem;
+        }
+    }
+}

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Lexend&display=swap");
 body {
   font-family: "Lexend", Arial, Helvetica, sans-serif;
@@ -16,24 +17,21 @@ main.login section {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 main.login section h1 {
-  margin-top: 2rem;
   width: 100%;
   text-align: center;
-  font-size: 3rem;
-  margin-bottom: 0;
+  font-size: 4rem;
+  margin-bottom: 2rem;
   color: rgb(32, 180, 137);
 }
 main.login section h2 {
   width: 100%;
   text-align: center;
   font-size: 1.5rem;
-  margin-top: 1rem;
 }
 main.login section img {
-  margin: auto;
-  display: block;
   margin-top: 2rem;
   border-radius: 1rem;
 }
@@ -58,7 +56,7 @@ main.login aside form {
   align-items: center;
 }
 main.login aside form input {
-  width: 80%;
+  width: 60%;
   font-size: 1.3rem;
   margin-bottom: 1rem;
   padding: 0.5rem;
@@ -68,7 +66,7 @@ main.login aside form input {
   color: white;
 }
 main.login aside form button {
-  width: 80%;
+  width: 60%;
   margin-bottom: 1rem;
   padding: 0.5rem;
   border-radius: 0.5rem;
@@ -86,6 +84,59 @@ main.login aside p {
 main.login aside p .link {
   color: rgb(32, 180, 137);
   text-decoration: none;
+}
+
+header.top {
+  width: 100vw;
+  height: 8vh;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  background-color: rgb(37, 38, 46);
+}
+header.top h1 {
+  margin-left: 2rem;
+  font-size: 2rem;
+}
+header.top h1 a {
+  text-decoration: none;
+  color: rgb(32, 180, 137);
+}
+header.top nav {
+  width: 25%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 2rem;
+}
+header.top nav div.lang {
+  width: 4rem;
+  text-decoration: none;
+  color: gray;
+}
+header.top nav div.lang a {
+  text-decoration: none;
+  color: gray;
+}
+header.top nav button {
+  padding: 0.5rem;
+  border-radius: 0.8rem;
+  border: none;
+  background-color: rgb(32, 180, 137);
+  color: white;
+  font-size: 1rem;
+}
+header.top nav button::before {
+  content: "⊕";
+  font-size: 1.3rem;
+  line-height: 0;
+  padding-right: 0.2rem;
+  display: inline-block;
+}
+header.top nav a {
+  width: 3rem;
 }
 
 /*# sourceMappingURL=screen.css.map */
