@@ -1,11 +1,14 @@
 @use '../constraints.scss';
 
+body{
+    background-color: constraints.$color-rate-it-background;
+}
+
 main.home{
     height: 92vh;
-    background-color: constraints.$color-rate-it-background-secundary;
-
+    background-color: constraints.$color-rate-it-background;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    justify-content: space-around;
     
 }

@@ -7,7 +7,7 @@ header.top {
 	justify-content: space-between;
 	flex-direction: row;
 	align-items: center;
-	background-color: constraints.$color-rate-it-background;
+	background-color: constraints.$color-rate-it-background-top;
 
 	h1 {
 		margin-left: 2rem;
@@ -33,6 +33,9 @@ header.top {
             a{
                 text-decoration: none;
                 color: gray;
+                &.active{
+                    color: constraints.$color-rate-it-green;
+                }
             }
         }
 
@@ -59,4 +62,6 @@ header.top {
             width: 3rem;
         }
     }
+
+    
 }

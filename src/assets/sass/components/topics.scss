@@ -1,9 +1,10 @@
 @use '../constraints.scss';
 
 aside.topics {
-	border-right: 0.3rem solid constraints.$color-rate-it-background;
-	border-bottom: 0.3rem solid constraints.$color-rate-it-background;
-	border-radius: 0.5rem;
+	background-color: constraints.$color-rate-it-background-secundary;
+    border: 0.5rem solid constraints.$color-rate-it-background-secundary;
+    border-radius: 0.5rem;
+	filter: constraints.$filter;
 	position: relative;
 	color: white;
 
