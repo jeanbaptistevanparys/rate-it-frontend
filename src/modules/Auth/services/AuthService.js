@@ -1,13 +1,10 @@
-const base_url = 'http://localhost/api/';
-
+import { _api } from '../../../config.js';
 export default class AuthService {
-
-
 
 	async login(email, password) {
 		console.log(JSON.stringify({ email, password }));
 
-		let fullUrl = base_url + 'login';
+		let fullUrl = _api + '/login';
 		const response = await fetch(fullUrl, {
 			method: 'POST',
 			headers: {
@@ -23,7 +20,7 @@ export default class AuthService {
 	}
 
 	async register(name, email, password) {
-		let fullUrl = base_url + 'register';
+		let fullUrl = _api + '/register';
 		const response = await fetch(fullUrl, {
 			method: 'POST',
 			headers: {

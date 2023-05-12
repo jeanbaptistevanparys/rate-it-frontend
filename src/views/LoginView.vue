@@ -53,7 +53,7 @@ export default {
             if (!res) {
                 alert("Wrong email or password")
             } else {
-                this.$router.push({ name: 'home', params: { lang: 'nl' } })
+                this.router.push({ name: 'home', params: { lang: 'nl' } })
             }
         }
     },

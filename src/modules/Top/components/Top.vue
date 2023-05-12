@@ -28,8 +28,13 @@ export default {
     },
     methods: {
         setLang(lang) {
-            this.router.push({ name: 'topic', params: {id: this.route.params.id ,lang: lang } });
-            // ask casier maybe not use this top at the home page
+            let params;
+            if(this.route.params.id){
+                params = {id: this.route.params.id ,lang: lang }
+            }else{
+                params = {lang: lang }
+            }
+            this.router.push({ name: this.route.name, params: params });
         }
     },
     data() {
