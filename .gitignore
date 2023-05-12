@@ -28,4 +28,4 @@ coverage
 *.sw?
 
 #config files
-config.js
+/src/config.js
