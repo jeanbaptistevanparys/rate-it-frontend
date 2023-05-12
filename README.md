@@ -21,9 +21,19 @@ npm install
 ```sh
 npm run dev
 ```
+### Compile Sass to the correct folder
+```sh
+npm run sass
+```
 
 ### Compile and Minify for Production
 
 ```sh
 npm run build
+```
+
+### dont forget tot add the /src/config.js file it should look something like this
+
+```js
+export const _api = 'http://localhost/api';
 ```
