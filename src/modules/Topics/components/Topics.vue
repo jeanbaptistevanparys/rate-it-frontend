@@ -1,8 +1,8 @@
 <template>
     <aside class="topics">
         <ul>
-            <li v-for="topic in topics" :key="topic.id" >
-                <Topic :topic="topic"  @select="selectTopic(topic.id)" :class="{ 'selected' : topic.id == selectedTopic }"/>
+            <li v-for="topic in topics">
+                <Topic :topic="topic" :class="{ 'selected' : parseInt(topic.id) == this.topic }"/>
             </li>
         </ul>
         <button>More</button>
@@ -16,6 +16,11 @@ export default {
     components: {
         Topic,
     },
+    props: {
+        topic: {
+            type: Number,
+        }
+    },
     data() {
         return {
             topics: [],
@@ -23,17 +28,8 @@ export default {
             "service": new TopicService(),
         }
     },
-    methods: {
-        selectTopic(topic) {
-            this.selectedTopic = topic
-            this.$emit('select', topic)
-        }
-    },
     async mounted() {
         this.topics = await this.service.getTopics()
     },
 }
 </script>
-<style>
-    
-</style>

@@ -1,5 +1,7 @@
 const url = "http://localhost/api/topic";
 
+const token = localStorage.getItem('token');
+
 export default class TopicService {
     constructor() {
         this.page = 1;
@@ -24,7 +26,11 @@ export default class TopicService {
 
 
         console.log(fullUrl);
-        const response = await fetch(fullUrl);
+        const response = await fetch(fullUrl, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': token
+        }});
         const data = await response.json();
 
         return data;

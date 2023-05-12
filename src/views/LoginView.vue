@@ -16,11 +16,11 @@
 
             <h2>Sign in</h2>
             <form @submit.prevent method="post">
-                <input type="text" placeholder="username">
+                <input type="text" placeholder="e-mail" v-model="email">
 
-                <input type="password" placeholder="password" name="pw" id="pw">
+                <input type="password" placeholder="password" name="pw" id="pw" v-model="password">
 
-                <button type="submit">Login</button>
+                <button @click="login" type="submit">Login</button>
             </form>
             <p>Don't have an account? <RouterLink class="link" to="/register">Create Acount</RouterLink>
             </p>
@@ -30,14 +30,32 @@
     </main>
 </template>
 <script>
-import { RouterLink } from 'vue-router';
+import { RouterLink, useRouter } from 'vue-router';
 import Meme from '../modules/Meme/components/Meme.vue';
+import AuthService from '../modules/Auth/services/AuthService';
 export default {
     name: 'LoginView',
     components: {
-    RouterLink,
-    Meme
-}
-
+        RouterLink,
+        Meme
+    },
+    data() {
+        return {
+            "service": new AuthService(),
+            router: new useRouter(),
+            email: "",
+            password: ""
+        }
+    },
+    methods: {
+        async login() {
+            const res = await this.service.login(this.email, this.password)
+            if (!res) {
+                alert("Wrong email or password")
+            } else {
+                this.$router.push({ name: 'home', params: { lang: 'nl' } })
+            }
+        }
+    },
 }
 </script>

@@ -14,9 +14,14 @@ const router = createRouter({
       component: () => import('../views/RegisterView.vue')
     },
     {
-      path: '/home',
+      path: '/:lang/home',
       name: 'home',
       component: () => import('../views/HomeView.vue')
+    },
+    {
+      path: '/:lang/topic/:id',
+      name: 'topic',
+      component: () => import('../views/TopicView.vue')
     },
   ]
 })

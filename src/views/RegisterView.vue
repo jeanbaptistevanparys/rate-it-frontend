@@ -15,14 +15,13 @@
 
             <h2>Sign up</h2>
             <form @submit.prevent method="post">
-                <input type="text" placeholder="username">
+                <input type="text" placeholder="username" v-model="username">
 
-                <input type="email" name="email" id="email" placeholder="E-mail">
+                <input type="email" name="email" id="email" placeholder="E-mail" v-model="email">
 
-                <input type="password" placeholder="password" name="pw" id="pw">
-                <input type="password" placeholder="repeat password" name="repw" id="repw">
+                <input type="password" placeholder="password" name="pw" id="pw" v-model="password">
 
-                <button type="submit">Register</button>
+                <button @click="register" type="submit">Register</button>
             </form>
             <p>Already have an acount?  <RouterLink class="link" to="/login">Sign in</RouterLink> </p>
 
@@ -31,13 +30,30 @@
     </main>
 </template>
 <script>
-import { RouterLink } from 'vue-router'
+import { RouterLink, useRouter } from 'vue-router'
+import AuthService from '../modules/Auth/services/AuthService';
 import Meme from '../modules/Meme/components/Meme.vue';
 export default {
     name: 'RegisterView',
     components: {
         RouterLink,
         Meme
-    }
+    },
+    data() {
+        return {
+            "service": new AuthService(),
+            router: new useRouter(),
+        }
+    },
+    methods: {
+        async register() {
+           const res = await this.service.register(this.username, this.email, this.password)
+            if (!res) {
+                alert("the fields are not entered correctly try again please")
+            }else{
+                this.$router.push({ name: 'login' })
+            }
+        }
+    },
 }
 </script>
