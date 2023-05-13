@@ -1,6 +1,7 @@
 <template>
     <header class="top">
-        <h1>
+        <div>
+            <h1>
             <router-link to="/nl/home">
                 RATE-IT
             </router-link>
@@ -18,6 +19,7 @@
                 <img src="../../../assets/img/default.jpg" alt="vue">
             </RouterLink>
         </nav>
+        </div>
     </header>
 </template>
 <script>
