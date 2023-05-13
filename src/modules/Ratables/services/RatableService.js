@@ -62,4 +62,48 @@ export default class TopicService {
 		});
 		return response;
 	}
+
+	async getRatable(topicId, ratableId) {
+		let fullUrl = _api + '/topic/';
+		fullUrl += topicId + '/ratable/' + ratableId;
+
+		const response = await fetch(fullUrl, {
+			headers: {
+				'Content-Type': 'application/json',
+				Authorization: token,
+			},
+		});
+		const data = await response.json();
+		return data;
+	}
+
+	async updateRatable(topicId, ratableId, data) {
+		let fullUrl = _api + '/topic/';
+		fullUrl += topicId + '/ratable/' + ratableId;
+
+		const response = await fetch(fullUrl, {
+			method: 'PUT',
+			headers: {
+				'Content-Type': 'application/json',
+				Authorization: token,
+			},
+			body: JSON.stringify(data),
+		});
+		return response;
+	}
+
+	async createRatable(topicId, data) {
+		let fullUrl = _api + '/topic/';
+		fullUrl += topicId + '/ratable';
+
+		const response = await fetch(fullUrl, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				Authorization: token,
+			},
+			body: JSON.stringify(data),
+		});
+		return response;
+	}
 }
