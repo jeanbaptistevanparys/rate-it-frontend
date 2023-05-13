@@ -41,7 +41,6 @@ export default {
         },
     },
     methods: {
-        //ask casier
         async rate(emit) {
             await this.service.rate(this.topic, emit.ratable.id, emit.score)
             this.reloadRatables()
@@ -52,6 +51,7 @@ export default {
         },
         async reloadRatables() {
             this.ratables = await this.service.getRatables(this.topic, this.lang)
+            console.log(this.ratables)
         }
 
     },
