@@ -23,6 +23,11 @@ const router = createRouter({
 			name: 'topic',
 			component: () => import('../views/TopicView.vue'),
 		},
+		{
+			path: '/:lang/topic/:topicid/ratable/:ratableid?',
+			name: 'ratable',
+			component: () => import('../views/RatableView.vue'),
+		},
 		{ path: '/:pathMatch(.*)*', name: 'notfound', component: () => import('../views/404.vue') },
 	],
 });
