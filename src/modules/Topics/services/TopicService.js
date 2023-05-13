@@ -34,4 +34,21 @@ export default class TopicService {
 
 		return data;
 	}
+
+	async createTopic(name) {
+		let fullUrl = url;
+		const response = await fetch(fullUrl, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				Authorization: token,
+			},
+			body: JSON.stringify({ name }),
+		});
+		const data = await response.json();
+
+		console.log(data)
+		
+		return data;
+	}
 }
