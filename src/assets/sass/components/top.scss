@@ -5,7 +5,7 @@ header.top {
 	background-color: constraints.$color-rate-it-background-top;
 
     > div {
-        width: 80rem;
+        max-width: 80rem;
         margin: 0 auto;
         display: flex;
         height: 4.5rem;
@@ -16,8 +16,8 @@ header.top {
     }
 
 	h1 {
-		margin-left: 2rem;
 		font-size: 2rem;
+        margin-left: 1.25rem;
 		a {
 			text-decoration: none;
 			color: constraints.$color-rate-it-green;
@@ -25,19 +25,18 @@ header.top {
 	}
 
     nav {
+        margin-right: 1.25rem;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
         gap: 1.25rem;
-        margin-right: 2rem;
 
         div.lang {
             width: 4rem;
             text-decoration: none;
             color: gray;
             a {
-                width: 3rem;
                 text-decoration: none;
                 color: gray;
                 &.active{
@@ -65,6 +64,7 @@ header.top {
             width: 2.5rem;
             height: 2.5rem;
             border-radius: 0.75rem;
+            vertical-align: middle;
             cursor: pointer;
         }
     }

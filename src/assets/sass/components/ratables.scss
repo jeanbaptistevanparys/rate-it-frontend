@@ -36,7 +36,9 @@ article.ratable {
 	img {
 		width: 14rem;
 		border-radius: 0.75rem 0 0 0.75rem;
-		object-fit: cover;
+		object-fit: scale-down;
+		object-position: top;
+		background-color: constraints.$color-rate-it-background;
 	}
 
     > div{

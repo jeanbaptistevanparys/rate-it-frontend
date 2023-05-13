@@ -35,6 +35,20 @@ export default class TopicService {
 		return data;
 	}
 
+	async getHotTopics() {
+		let fullUrl = url;
+		fullUrl += "/hot"
+		const response = await fetch(fullUrl, {
+			headers: {
+				'Content-Type': 'application/json',
+				Authorization: token,
+			},
+		});
+		const data = await response.json();
+
+		return data;
+	}
+
 	async createTopic(name) {
 		let fullUrl = url;
 		const response = await fetch(fullUrl, {

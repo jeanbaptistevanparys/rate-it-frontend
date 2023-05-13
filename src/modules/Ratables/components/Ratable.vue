@@ -52,7 +52,7 @@ export default {
             this.discription = this.ratable.ratable_language[0].description;
             this.avg = Number(this.ratable.average_score).toFixed(1);
             this.rating = this.ratable.user_rating;
-            this.score = this.ratable.user_rating ? this.ratable.user_rating.score : 0;
+            this.score = this.ratable.user_rating ? this.ratable.user_rating.score : "";
         }
     },
     methods: {
