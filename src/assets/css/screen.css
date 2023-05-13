@@ -87,13 +87,15 @@ main.login aside p .link {
 
 body {
   background-color: rgb(55, 58, 66);
+  height: 100vh;
 }
 
 main.home {
   background-color: rgb(55, 58, 66);
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  margin: 0 auto;
+  width: 80rem;
 }
 
 header.top {
@@ -135,63 +137,62 @@ header.top nav div.lang a.active {
   color: rgb(32, 180, 137);
 }
 header.top nav button {
-  padding: 0 1rem 0 2.25rem;
+  padding: 0 1rem 0 2.5rem;
   border-radius: 0.8rem;
   border: none;
   background-color: rgb(32, 180, 137);
   color: white;
   font-size: 1rem;
-  height: 2.25rem;
+  height: 2.5rem;
   cursor: pointer;
   background-image: url("../img/add.svg");
   background-repeat: no-repeat;
-  background-position: 0.5rem;
+  background-position: 0.75rem;
   background-size: 1.5rem;
 }
 header.top nav img {
-  width: 2.25rem;
-  height: 2.25rem;
+  width: 2.5rem;
+  height: 2.5rem;
   border-radius: 0.75rem;
   cursor: pointer;
 }
 
 aside.topics {
   background-color: rgb(70, 73, 85);
-  border: 0.5rem solid rgb(70, 73, 85);
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   filter: drop-shadow(0.2rem 0.2rem 0.4rem rgba(0, 0, 0, 0.25));
-  position: relative;
   color: white;
-  height: 40vh;
-  margin-top: 15vh;
+  width: 20rem;
+  margin: 3rem;
+  height: fit-content;
 }
-aside.topics ul li {
-  padding: 0.1rem;
-}
-aside.topics ul li:hover {
-  background-color: rgb(55, 58, 66);
-}
-aside.topics article {
+aside.topics li {
   padding: 1rem;
-  width: 100%;
   display: flex;
   flex-direction: column;
-  margin-bottom: 0.5rem;
   cursor: pointer;
+  border-bottom: 0.01rem solid rgb(118, 118, 118);
 }
-aside.topics article h3 {
+aside.topics li:last-child {
+  border-bottom: none;
+  padding-bottom: 1.5rem;
+}
+aside.topics li h3 {
   font-size: 1rem;
 }
-aside.topics article p {
+aside.topics li p {
   color: rgb(118, 118, 118);
   font-size: 0.8rem;
 }
-aside.topics article.selected h3 {
+aside.topics li.selected h3 {
   color: rgb(32, 180, 137);
+}
+aside.topics li:hover {
+  background-color: rgb(55, 58, 66);
 }
 aside.topics button {
   padding: 0.5rem;
-  border-radius: 0.8rem;
+  border-radius: 0.75rem;
   border: none;
   background-color: rgb(32, 180, 137);
   color: white;
@@ -199,21 +200,41 @@ aside.topics button {
   width: 4rem;
   cursor: pointer;
   position: absolute;
-  right: 0rem;
-  bottom: -1.3rem;
+  right: 0.75rem;
+  bottom: -1rem;
   background-color: rgb(32, 180, 137);
 }
 
+ul.ratable {
+  overflow-y: scroll;
+  margin-right: 3rem;
+  padding-top: 3rem;
+  padding-right: 1rem;
+  height: calc(100vh - 4.5rem - 3rem);
+  scrollbar-width: thin;
+}
+ul.ratable::-webkit-scrollbar {
+  width: 0.5rem;
+}
+ul.ratable::-webkit-scrollbar-track-piece {
+  background: rgb(70, 73, 85);
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  border-radius: 1rem;
+}
+ul.ratable::-webkit-scrollbar-thumb {
+  background: rgb(118, 118, 118);
+  border-radius: 1rem;
+}
+
 section.ratable {
-  width: 60vw;
-  height: 25vh;
   display: flex;
   flex-direction: row;
-  margin-top: 2rem;
   background-color: rgb(70, 73, 85);
   border: 0.5rem solid rgb(70, 73, 85);
   border-radius: 0.5rem;
   filter: drop-shadow(0.2rem 0.2rem 0.4rem rgba(0, 0, 0, 0.25));
+  margin-bottom: 2rem;
 }
 section.ratable img {
   height: 25vh;

@@ -1,9 +1,8 @@
-<template >
-    <article @click="select">
+<template>
+    <li @click="select">
         <h3>{{ topic.name }}</h3>
         <p>{{ topic.ratables_count }} ratables</p>
-        <!-- TODO insert number of ratables -->
-    </article>
+    </li>
 </template>
 <script>
 import { useRoute, useRouter } from 'vue-router';

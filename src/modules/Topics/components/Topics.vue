@@ -1,9 +1,7 @@
 <template>
     <aside class="topics">
         <ul>
-            <li v-for="topic in topics">
-                <Topic :topic="topic" :class="{ 'selected' : parseInt(topic.id) == this.topic }"/>
-            </li>
+            <Topic v-for="topic in topics" :topic="topic" :class="{ 'selected' : parseInt(topic.id) == this.topic }"/>
         </ul>
         <button>More</button>
     </aside>

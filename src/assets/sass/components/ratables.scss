@@ -2,21 +2,38 @@
 
 
 ul.ratable{
-	//make this scrollable
+	overflow-y: scroll;
+	margin-right: 3rem;
+	padding-top: 3rem;
+	padding-right: 1rem;
+	height: calc(100vh - 4.5rem - 3rem); // minus header margin
+	scrollbar-width: thin;
 
+	&::-webkit-scrollbar {
+		width: 0.5rem;
+	}
+
+	&::-webkit-scrollbar-track-piece {
+		background: constraints.$color-rate-it-background-secundary;
+		margin-top: 3rem;
+		margin-bottom: 2rem;
+		border-radius: 1rem;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background: constraints.$color-rate-it-gray;
+		border-radius: 1rem;
+	}
 }
 
 section.ratable {
-	width: 60vw;
-	height: 25vh;
 	display: flex;
     flex-direction: row;
-    margin-top: 2rem;
-
 	background-color: constraints.$color-rate-it-background-secundary;
     border: 0.5rem solid constraints.$color-rate-it-background-secundary;
     border-radius: 0.5rem;
 	filter: constraints.$filter;
+	margin-bottom: 2rem;
 
 	img {
 		height: 25vh;

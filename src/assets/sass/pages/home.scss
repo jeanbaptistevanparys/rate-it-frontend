@@ -2,12 +2,13 @@
 
 body{
     background-color: constraints.$color-rate-it-background;
+    height: 100vh;
 }
 
 main.home{
     background-color: constraints.$color-rate-it-background;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    
+    margin: 0 auto;
+    width: 80rem;
 }
