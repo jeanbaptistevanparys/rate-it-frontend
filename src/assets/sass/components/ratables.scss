@@ -1,5 +1,11 @@
 @use '../constraints.scss';
 
+
+ul.ratable{
+	//make this scrollable
+
+}
+
 section.ratable {
 	width: 60vw;
 	height: 25vh;
@@ -63,7 +69,8 @@ section.ratable {
             width: 2rem;
             text-align: center;
             &.unrate{
-                color: gray;
+                color: constraints.$color-rate-it-gray;
+				
             }
 		}
 		input[type='submit'] {

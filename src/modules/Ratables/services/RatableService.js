@@ -1,20 +1,12 @@
-
 import { _api } from '../../../config.js';
 import { useRoute } from 'vue-router';
 
 const token = localStorage.getItem('token');
 
-
-const route = useRoute();
 export default class TopicService {
-
-	
-
 	constructor() {
 		this.page = 1;
 		this.perPage = 10;
-
-		this.route = useRoute();
 	}
 
 	setPage(page) {
@@ -22,17 +14,14 @@ export default class TopicService {
 		return this;
 	}
 
-	async getRatables(topic) {
-		this.language = this.route.params.lang;
-
+	async getRatables(topic, lang) {
 		let fullUrl = _api + '/topic/';
 		fullUrl += topic + '/ratable';
 
 		// fullUrl += "?perPage=" + this.perPage;
 		// fullUrl += "&page=" + this.page;
 
-
-		fullUrl += '?language=' + this.language;
+		fullUrl += '?language=' + lang;
 
 		const response = await fetch(fullUrl, {
 			headers: {
@@ -44,9 +33,7 @@ export default class TopicService {
 		return data.data;
 	}
 
-	async rate(topic, ratableId, rating) {
-		// /topic/{topicName}/ratable/{ratableId}/rating
-		// post rating
+	async rate(topic, ratableId, score) {
 		let fullUrl = _api + '/topic/';
 		fullUrl += topic + '/ratable/' + ratableId + '/rating';
 
@@ -56,19 +43,15 @@ export default class TopicService {
 				'Content-Type': 'application/json',
 				Authorization: token,
 			},
-			body: JSON.stringify(rating),
+			body: JSON.stringify({ score }),
 		});
 
-		const data = await response.json();
-
-		return data;
-
-		// TODO: handle errors
+		return response;
 	}
 
 	async unrate(topic, ratableId, rating) {
 		let fullUrl = _api + '/topic/';
-		fullUrl += topic + '/ratable/' + ratableId + '/rating/' + rating.id;
+		fullUrl += topic + '/ratable/' + ratableId + '/rating/' + rating;
 
 		const response = await fetch(fullUrl, {
 			method: 'DELETE',
@@ -77,9 +60,6 @@ export default class TopicService {
 				Authorization: token,
 			},
 		});
-
-		const data = await response.json();
-
-		return data;
+		return response;
 	}
 }

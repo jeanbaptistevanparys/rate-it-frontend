@@ -22,8 +22,6 @@
     </section>
 </template>
 <script>
-import router from '../../../router/index';
-import RatableService from '../services/RatableService';
 export default {
     name: 'Ratable',
     props: {
@@ -43,19 +41,27 @@ export default {
             discription: this.ratable.ratable_language[0].description,
             avg: Number(this.ratable.average_score).toFixed(1),
             rating: this.ratable.user_rating,
-            "service": new RatableService(),
             score: this.ratable.user_rating ? this.ratable.user_rating.score : 0,
         };
     },
+    watch:
+    {
+        ratable: function () {
+            this.image = this.ratable.image;
+            this.title = this.ratable.ratable_language[0].name;
+            this.discription = this.ratable.ratable_language[0].description;
+            this.avg = Number(this.ratable.average_score).toFixed(1);
+            this.rating = this.ratable.user_rating;
+            this.score = this.ratable.user_rating ? this.ratable.user_rating.score : 0;
+        }
+    },
     methods: {
-        async rate() {
-            this.service.rate(this.topic, this.ratable.id, { score: this.score, ratingId: this.ratable.id });
+        rate() {
+            this.$emit('rate', { ratable: this.ratable, score: this.score });
         },
-        async unrate(rating) {
-            this.service.unrate(this.topic, this.ratable.id, rating);
+        unrate(rating) {
+            this.$emit('unrate', { ratable: this.ratable, rating: rating });
         }
     },
 }
 </script>
-
-<!-- ask casier -->

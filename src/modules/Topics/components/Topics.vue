@@ -29,7 +29,7 @@ export default {
         }
     },
     async mounted() {
-        this.topics = await this.service.getTopics()
+        this.topics = await this.service.getTopics();
     },
 }
 </script>

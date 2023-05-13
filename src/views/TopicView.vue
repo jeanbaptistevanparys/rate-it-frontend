@@ -3,7 +3,7 @@
   <main class="home">
 
     <topics @select="selectTopic" :topic="parseInt(route.params.id)"></topics>
-    <ratables v-if="route.params.id" :topic="parseInt(route.params.id)">
+    <ratables v-if="route.params.id" :topic="parseInt(route.params.id)" :lang="route.params.lang">
     </ratables>
     <h2 v-else> Select a topic to start </h2>
 
@@ -29,7 +29,7 @@ export default {
   methods: {
     selectTopic(topic) {
       this.route.push({ name: 'topic', params: { id: topic.id, lang : this.route.params.lang  } })
-    }
+    },
   },
 }
 </script>

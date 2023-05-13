@@ -7,6 +7,8 @@ aside.topics {
 	filter: constraints.$filter;
 	position: relative;
 	color: white;
+	height: 40vh;
+	margin-top: 15vh;
 
 	ul{
         li{
@@ -29,6 +31,7 @@ aside.topics {
 			font-size: 1rem;
 		}
 		p {
+			color: constraints.$color-rate-it-gray;
 			font-size: 0.8rem;
 		}
 

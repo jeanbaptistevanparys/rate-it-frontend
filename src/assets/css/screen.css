@@ -162,6 +162,8 @@ aside.topics {
   filter: drop-shadow(0.2rem 0.2rem 0.4rem rgba(0, 0, 0, 0.25));
   position: relative;
   color: white;
+  height: 40vh;
+  margin-top: 15vh;
 }
 aside.topics ul li {
   padding: 0.1rem;
@@ -181,6 +183,7 @@ aside.topics article h3 {
   font-size: 1rem;
 }
 aside.topics article p {
+  color: rgb(118, 118, 118);
   font-size: 0.8rem;
 }
 aside.topics article.selected h3 {
@@ -260,7 +263,7 @@ section.ratable form input[type=number] {
   text-align: center;
 }
 section.ratable form input[type=number].unrate {
-  color: gray;
+  color: rgb(118, 118, 118);
 }
 section.ratable form input[type=submit] {
   padding: 0.5rem;

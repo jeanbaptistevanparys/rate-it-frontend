@@ -1,7 +1,7 @@
 <template>
-    <ul>
+    <ul class="ratable">
         <li v-for="ratable in ratables" :key="ratable.id">
-            <Ratable :ratable="ratable" :topic="this.topic" />
+            <Ratable :ratable="ratable" :topic="this.topic" @rate="rate" @unrate="unrate" />
         </li>
     </ul>
 </template>
@@ -18,6 +18,10 @@ export default {
             type: Number,
             required: true
         },
+        lang: {
+            type: String,
+            required: true
+        }
     },
     data() {
         return {
@@ -26,12 +30,30 @@ export default {
         }
     },
     async mounted() {
-        this.ratables = await this.service.getRatables(this.topic)
+        this.reloadRatables()
     },
     watch: {
-        topic: async function () {
-            this.ratables = await this.service.getRatables(this.topic)
+        topic: function () {
+            this.reloadRatables()
+        },
+        lang: function () {
+            this.reloadRatables()
+        },
+    },
+    methods: {
+        //ask casier
+        async rate(emit) {
+            await this.service.rate(this.topic, emit.ratable.id, emit.score)
+            this.reloadRatables()
+        },
+        async unrate(emit) {
+            await this.service.unrate(this.topic, emit.ratable.id, emit.rating.id)
+            this.reloadRatables()
+        },
+        async reloadRatables() {
+            this.ratables = await this.service.getRatables(this.topic, this.lang)
         }
+
     },
 }
 </script>

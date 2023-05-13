@@ -24,8 +24,6 @@ export default class TopicService {
 		let fullUrl = url;
 		// fullUrl += "?perPage=" + this.perPage;
 		// fullUrl += "&page=" + this.page;
-
-		console.log(fullUrl);
 		const response = await fetch(fullUrl, {
 			headers: {
 				'Content-Type': 'application/json',

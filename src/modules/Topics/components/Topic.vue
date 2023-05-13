@@ -1,7 +1,7 @@
 <template >
     <article @click="select">
         <h3>{{ topic.name }}</h3>
-        <p>number of ratables</p>
+        <p>{{ topic.ratables_count }} ratables</p>
         <!-- TODO insert number of ratables -->
     </article>
 </template>
@@ -23,7 +23,6 @@ export default {
     },
     methods: {
         select() {
-            console.log()
             this.router.push({ name: 'topic', params: { id: this.topic.id, lang: this.route.params.lang ? this.route.params.lang : 'nl'  } })
         }
     },
