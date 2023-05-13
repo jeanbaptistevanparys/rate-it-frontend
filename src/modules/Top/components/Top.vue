@@ -12,7 +12,7 @@
                 <a @click="setLang('en')" href="#" :class="{ active: this.route.params.lang == 'en' }">EN</a>
             </div>
 
-            <button>Create</button>
+            <button @click="createTopic">Create</button>
 
             <RouterLink to="/nl/home">
                 <img src="../../../assets/logo.svg" alt="vue">
@@ -21,6 +21,7 @@
     </header>
 </template>
 <script>
+
 import { useRoute, useRouter } from 'vue-router';
 export default {
     name: 'Top',
@@ -29,12 +30,18 @@ export default {
     methods: {
         setLang(lang) {
             let params;
-            if(this.route.params.id){
-                params = {id: this.route.params.id ,lang: lang }
-            }else{
-                params = {lang: lang }
+            if (this.route.params.id) {
+                params = { id: this.route.params.id, lang: lang }
+            } else {
+                params = { lang: lang }
             }
             this.router.push({ name: this.route.name, params: params });
+        },
+        async createTopic() {
+            const topicname = prompt("Please enter a topic name", "New topic");
+            if (topicname != null) {
+                this.$emit('createtopic', topicname);
+            }
         }
     },
     data() {
