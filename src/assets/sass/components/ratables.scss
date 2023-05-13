@@ -15,10 +15,8 @@ div.ratables {
 	}
 
 	&::-webkit-scrollbar-track-piece {
-		background: constraints.$color-rate-it-background-secundary;
 		margin-top: 3rem;
 		margin-bottom: 2rem;
-		border-radius: 1rem;
 	}
 
 	&::-webkit-scrollbar-thumb {

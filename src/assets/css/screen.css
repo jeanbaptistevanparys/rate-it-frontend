@@ -218,10 +218,8 @@ div.ratables::-webkit-scrollbar {
   width: 0.5rem;
 }
 div.ratables::-webkit-scrollbar-track-piece {
-  background: rgb(70, 73, 85);
   margin-top: 3rem;
   margin-bottom: 2rem;
-  border-radius: 1rem;
 }
 div.ratables::-webkit-scrollbar-thumb {
   background: rgb(118, 118, 118);
