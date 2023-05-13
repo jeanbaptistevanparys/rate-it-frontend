@@ -21,11 +21,18 @@
     </header>
 </template>
 <script>
-
 import { useRoute, useRouter } from 'vue-router';
+import TopicService from '../../Topics/services/TopicService.js';
 export default {
     name: 'Top',
     components: {
+    },
+    data() {
+        return {
+            router: useRouter(),
+            route: useRoute(),
+            service : new TopicService(),
+        }
     },
     methods: {
         setLang(lang) {
@@ -38,17 +45,15 @@ export default {
             this.router.push({ name: this.route.name, params: params });
         },
         async createTopic() {
-            const topicname = prompt("Please enter a topic name", "New topic");
+            const topicname = await prompt("Please enter a topic name", "New topic");
             if (topicname != null) {
-                this.$emit('createtopic', topicname);
+                const topic  = await this.service.createTopic(topicname);
+                
+                this.router.push({ name: 'topic', params: {id: topic.id , lang: this.route.params.lang } });
             }
         }
     },
-    data() {
-        return {
-            router: useRouter(),
-            route: useRoute(),
-        }
-    },
+    
+
 }
 </script>
