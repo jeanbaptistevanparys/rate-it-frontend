@@ -2,23 +2,23 @@
     <header class="top">
         <div>
             <h1>
-            <router-link to="/nl/home">
-                RATE-IT
-            </router-link>
-        </h1>
-        <nav>
-            <div class="lang">
-                <a @click="setLang('nl')" href="#" :class="{ active: this.route.params.lang == 'nl' }">NL</a>
-                |
-                <a @click="setLang('en')" href="#" :class="{ active: this.route.params.lang == 'en' }">EN</a>
-            </div>
+                <router-link to="/nl/home">
+                    RATE-IT
+                </router-link>
+            </h1>
+            <nav>
+                <div class="lang">
+                    <a @click="setLang('nl')" href="#" :class="{ active: this.route.params.lang == 'nl' }">NL</a>
+                    |
+                    <a @click="setLang('en')" href="#" :class="{ active: this.route.params.lang == 'en' }">EN</a>
+                </div>
 
-            <button @click="createTopic">Create</button>
+                <button @click="createTopic">Create</button>
 
-            <RouterLink to="/nl/home">
-                <img src="../../../assets/img/default.jpg" alt="vue">
-            </RouterLink>
-        </nav>
+                <RouterLink to="/nl/home">
+                    <img src="../../../assets/img/default.jpg" alt="vue">
+                </RouterLink>
+            </nav>
         </div>
     </header>
 </template>
@@ -33,7 +33,7 @@ export default {
         return {
             router: useRouter(),
             route: useRoute(),
-            service : new TopicService(),
+            service: new TopicService(),
         }
     },
     methods: {
@@ -49,13 +49,12 @@ export default {
         async createTopic() {
             const topicname = await prompt("Please enter a topic name", "New topic");
             if (topicname != null) {
-                const topic  = await this.service.createTopic(topicname);
-                
-                this.router.push({ name: 'topic', params: {id: topic.id , lang: this.route.params.lang } });
+                const topic = await this.service.createTopic(topicname);
+                this.router.push({ name: 'topic', params: { id: topic.id, lang: this.route.params.lang } });
             }
         }
     },
-    
+
 
 }
 </script>

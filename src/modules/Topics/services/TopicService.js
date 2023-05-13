@@ -51,4 +51,18 @@ export default class TopicService {
 		
 		return data;
 	}
+
+	async deleteTopic(id) {
+		let fullUrl = url + '/' + id;
+		const response = await fetch(fullUrl, {
+			method: 'DELETE',
+			headers: {
+				'Content-Type': 'application/json',
+				Authorization: token,
+			},
+		});
+		const data = await response.json();
+
+		return data;
+	}
 }
