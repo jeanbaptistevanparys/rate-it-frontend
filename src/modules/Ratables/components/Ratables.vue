@@ -1,9 +1,9 @@
 <template>
-    <ul class="ratable">
-        <li v-for="ratable in ratables" :key="ratable.id">
-            <Ratable :ratable="ratable" :topic="this.topic" @rate="rate" @unrate="unrate" />
-        </li>
-    </ul>
+    <div class="ratables">
+        <Ratable v-for="ratable in ratables" :key="ratable.id" 
+            :ratable="ratable" :topic="this.topic" @rate="rate" @unrate="unrate"
+        />
+    </div>
 </template>
 <script>
 import Ratable from './Ratable.vue'

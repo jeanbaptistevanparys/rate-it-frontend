@@ -1,12 +1,13 @@
 @use '../constraints.scss';
 
 
-ul.ratable{
+div.ratables {
 	overflow-y: scroll;
 	margin-right: 3rem;
 	padding-top: 3rem;
 	padding-right: 1rem;
 	height: calc(100vh - 4.5rem - 3rem); // minus header margin
+	width: calc(70rem - 15rem - 3rem); // minus aside width and margin
 	scrollbar-width: thin;
 
 	&::-webkit-scrollbar {
@@ -26,77 +27,92 @@ ul.ratable{
 	}
 }
 
-section.ratable {
+article.ratable {
 	display: flex;
     flex-direction: row;
 	background-color: constraints.$color-rate-it-background-secundary;
-    border: 0.5rem solid constraints.$color-rate-it-background-secundary;
-    border-radius: 0.5rem;
+    border-radius: 0.75rem;
 	filter: constraints.$filter;
 	margin-bottom: 2rem;
 
 	img {
-		height: 25vh;
-        width: 20vh;
-		border-radius: 5%;
-		margin-right: 1vw;
-		justify-self: start;
+		width: 14rem;
+		border-radius: 0.75rem 0 0 0.75rem;
+		object-fit: cover;
 	}
 
-    div{
+    > div{
         padding: 1rem;
         display: flex;
+		justify-content: space-between;
         flex-direction: column;
         width: 100%;
     }
 
 	h2 {
         font-size: 1.5rem;
+		margin-bottom: 1rem;
         color: white;
 	}
 
 	p {
-        margin-top: 1rem;
-        font-size: 0.8rem;
+        font-size: 1rem;
+		font-weight: lighter;
         color: white;
 	}
 
-
 	form {
-        margin-top: 2rem;
+		margin-top: 1rem;
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
 		align-items: center;
 		h3 {
             color: white;
-			padding: 0.3rem;
+			padding: 0.5rem;
 			font-size: 1.5rem;
 			background-color: constraints.$color-rate-it-background;
-			border-right: 0.3rem solid constraints.$color-rate-it-background;
-			border-bottom: 0.3rem solid constraints.$color-rate-it-background;
 			border-radius: 0.5rem;
 		}
+		> div {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			gap: 1rem;
+		}
 		input[type='number'] {
-			margin-left: 6rem;
+			border: none;
+			height: 2rem;
+			width: 2rem;
+			padding-left: 3rem;
+			padding-right: 0.5rem;
+			font-size: 1.5rem;
             background-color: constraints.$color-rate-it-background;
-			border-radius: 0.5rem;
-            padding: 0.3rem;
+			border-radius: 0.75rem;
+			background-image: url('../img/star.svg');
+			background-repeat: no-repeat;
+			background-size: 1.5rem;
+			background-position: 0.5rem center;
             color: white;
-            width: 2rem;
-            text-align: center;
+			&::-webkit-outer-spin-button, &::-webkit-inner-spin-button {
+				-webkit-appearance: none; 
+				margin: 0; 
+			}
             &.unrate{
                 color: constraints.$color-rate-it-gray;
+				pointer-events: none;
+				background-image: url('../img/star.svg');
 				
             }
 		}
 		input[type='submit'] {
 			padding: 0.5rem;
-			border-radius: 0.8rem;
+			border-radius: 0.75rem;
+			height: 2rem;
 			border: none;
 			background-color: constraints.$color-rate-it-green;
 			color: white;
-			font-size: 0.8rem;
+			font-size: 1rem;
 			width: 4rem;
 			cursor: pointer;
 			background-color: constraints.$color-rate-it-green;

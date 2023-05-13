@@ -1,25 +1,25 @@
 <template >
-    <section class="ratable">
+    <article class="ratable">
         <img :src="image" :alt="title">
         <div>
-            <h2>{{ title }}</h2>
-            <p>{{ discription }}</p>
-
-
+            <div>
+                <h2>{{ title }}</h2>
+                <p>{{ discription }}</p>
+            </div>
             <form @submit.prevent>
 
                 <h3>{{ avg }}</h3>
 
-                <input type="number" :class="{ unrate: rating != null }" placeholder="rating" v-model="score">
-
-                <input v-if="rating == null" @click="rate" type="submit" value="Rate!">
-
-                <input v-if="rating != null" @click="unrate(rating)" type="submit" class="unrate" value="unrate">
+                <div>
+                    <input type="number" min="0" max="10" placeholder="0" :class="{ unrate: rating != null }" v-model="score">
+                    <input v-if="rating == null" @click="rate" type="submit" value="Rate!">
+                    <input v-if="rating != null" @click="unrate(rating)" type="submit" class="unrate" value="Unrate">
+                </div>
 
             </form>
         </div>
 
-    </section>
+    </article>
 </template>
 <script>
 export default {
@@ -41,7 +41,7 @@ export default {
             discription: this.ratable.ratable_language[0].description,
             avg: Number(this.ratable.average_score).toFixed(1),
             rating: this.ratable.user_rating,
-            score: this.ratable.user_rating ? this.ratable.user_rating.score : 0,
+            score: this.ratable.user_rating ? this.ratable.user_rating.score : "",
         };
     },
     watch:
