@@ -15,7 +15,7 @@
             <button>Create</button>
 
             <RouterLink to="/nl/home">
-                <img src="../../../assets/logo.svg" alt="vue">
+                <img src="../../../assets/img/default.jpg" alt="vue">
             </RouterLink>
         </nav>
     </header>
