@@ -1,0 +1,40 @@
+@use '../constraints.scss';
+
+.hot-topics {
+	width: calc(70rem - 15rem - 3rem); // minus aside width and margin
+    margin-top: 3rem;
+
+    h2 {
+        text-transform: uppercase;
+        color: constraints.$color-rate-it-gray;
+    }
+
+    ul {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+        height: fit-content;
+
+        li {
+            background-color: constraints.$color-rate-it-background-secundary;
+            height: 5rem;
+            margin: 1rem;
+            line-height: 5rem;
+            flex-basis: calc(100% / 3 - 2rem);
+            filter: constraints.$filter;
+            border-radius: 0.75rem;
+            color: white;
+            cursor: pointer;
+            padding-left: 0.5rem;
+            box-sizing: border-box;
+            font-size: 1.5rem;
+
+            span {
+                font-size: 3rem;
+                margin-right: 1rem;
+                color: constraints.$color-rate-it-green;
+            }
+        }
+    }
+}

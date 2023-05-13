@@ -114,12 +114,14 @@ header.top > div {
 }
 header.top h1 {
   font-size: 2rem;
+  margin-left: 1.25rem;
 }
 header.top h1 a {
   text-decoration: none;
   color: rgb(32, 180, 137);
 }
 header.top nav {
+  margin-right: 1.25rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -319,6 +321,41 @@ article.ratable form input[type=submit] {
 }
 article.ratable form input[type=submit].unrate {
   background-color: rgb(55, 58, 66);
+  color: rgb(32, 180, 137);
+}
+
+.hot-topics {
+  width: 52rem;
+  margin-top: 3rem;
+}
+.hot-topics h2 {
+  text-transform: uppercase;
+  color: rgb(118, 118, 118);
+}
+.hot-topics ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  height: fit-content;
+}
+.hot-topics ul li {
+  background-color: rgb(70, 73, 85);
+  height: 5rem;
+  margin: 1rem;
+  line-height: 5rem;
+  flex-basis: calc(33.3333333333% - 2rem);
+  filter: drop-shadow(0.2rem 0.2rem 0.4rem rgba(0, 0, 0, 0.25));
+  border-radius: 0.75rem;
+  color: white;
+  cursor: pointer;
+  padding-left: 0.5rem;
+  box-sizing: border-box;
+  font-size: 1.5rem;
+}
+.hot-topics ul li span {
+  font-size: 3rem;
+  margin-right: 1rem;
   color: rgb(32, 180, 137);
 }
 

@@ -17,6 +17,7 @@ header.top {
 
 	h1 {
 		font-size: 2rem;
+        margin-left: 1.25rem;
 		a {
 			text-decoration: none;
 			color: constraints.$color-rate-it-green;
@@ -24,6 +25,7 @@ header.top {
 	}
 
     nav {
+        margin-right: 1.25rem;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
