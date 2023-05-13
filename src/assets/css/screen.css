@@ -103,7 +103,7 @@ header.top {
   background-color: rgb(37, 38, 46);
 }
 header.top > div {
-  width: 80rem;
+  max-width: 80rem;
   margin: 0 auto;
   display: flex;
   height: 4.5rem;
@@ -113,7 +113,6 @@ header.top > div {
   background-color: rgb(37, 38, 46);
 }
 header.top h1 {
-  margin-left: 2rem;
   font-size: 2rem;
 }
 header.top h1 a {
@@ -126,7 +125,6 @@ header.top nav {
   justify-content: space-between;
   align-items: center;
   gap: 1.25rem;
-  margin-right: 2rem;
 }
 header.top nav div.lang {
   width: 4rem;
@@ -134,7 +132,6 @@ header.top nav div.lang {
   color: gray;
 }
 header.top nav div.lang a {
-  width: 3rem;
   text-decoration: none;
   color: gray;
 }
@@ -159,6 +156,7 @@ header.top nav img {
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 0.75rem;
+  vertical-align: middle;
   cursor: pointer;
 }
 
@@ -242,7 +240,9 @@ article.ratable {
 article.ratable img {
   width: 14rem;
   border-radius: 0.75rem 0 0 0.75rem;
-  object-fit: cover;
+  object-fit: scale-down;
+  object-position: top;
+  background-color: rgb(55, 58, 66);
 }
 article.ratable > div {
   padding: 1rem;

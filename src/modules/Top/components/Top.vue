@@ -2,23 +2,23 @@
     <header class="top">
         <div>
             <h1>
-            <router-link to="/nl/home">
-                RATE-IT
-            </router-link>
-        </h1>
-        <nav>
-            <div class="lang">
-                <a @click="setLang('nl')" href="#" :class="{ active: this.route.params.lang == 'nl' }">NL</a>
-                |
-                <a @click="setLang('en')" href="#" :class="{ active: this.route.params.lang == 'en' }">EN</a>
-            </div>
+                <router-link to="/nl/home">
+                    RATE-IT
+                </router-link>
+            </h1>
+            <nav>
+                <div class="lang">
+                    <a @click="setLang('nl')" href="#" :class="{ active: this.route.params.lang == 'nl' }">NL</a>
+                    |
+                    <a @click="setLang('en')" href="#" :class="{ active: this.route.params.lang == 'en' }">EN</a>
+                </div>
 
-            <button @click="createTopic">Create</button>
+                <button @click="createTopic">Create</button>
 
-            <RouterLink to="/nl/home">
-                <img src="../../../assets/img/default.jpg" alt="vue">
-            </RouterLink>
-        </nav>
+                <RouterLink to="/nl/home">
+                    <img src="../../../assets/img/default.jpg" alt="vue">
+                </RouterLink>
+            </nav>
         </div>
     </header>
 </template>
