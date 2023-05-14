@@ -202,6 +202,10 @@ aside.topics ul {
 aside.topics ul::-webkit-scrollbar {
   width: 0.5rem;
 }
+aside.topics ul::-webkit-scrollbar-track {
+  background: rgb(70, 73, 85);
+  border-radius: 0 2rem 2rem 0;
+}
 aside.topics ul::-webkit-scrollbar-track-piece {
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -258,6 +262,9 @@ div.ratables {
 }
 div.ratables::-webkit-scrollbar {
   width: 0.5rem;
+}
+div.ratables::-webkit-scrollbar-track {
+  background: rgb(55, 58, 66);
 }
 div.ratables::-webkit-scrollbar-track-piece {
   margin-top: 3rem;
