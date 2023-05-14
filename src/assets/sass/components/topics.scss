@@ -36,6 +36,22 @@ aside.topics {
 		border-radius: 0.75rem;
 		filter: constraints.$filter;
 		color: white;
+		max-height: calc(100vh - 16rem);
+		overflow-y: scroll;
+
+		&::-webkit-scrollbar {
+			width: 0.5rem;
+		}
+	
+		&::-webkit-scrollbar-track-piece {
+			margin-top: 1rem;
+			margin-bottom: 1rem;
+		}
+	
+		&::-webkit-scrollbar-thumb {
+			background: constraints.$color-rate-it-gray;
+			border-radius: 1rem;
+		}
 	}
 
 	li {
@@ -46,7 +62,6 @@ aside.topics {
 		border-bottom: 0.01rem solid constraints.$color-rate-it-gray;
 		&:last-child {
 			border-bottom: none;
-			padding-bottom: 1.5rem;
 		}
 
 		h3 {

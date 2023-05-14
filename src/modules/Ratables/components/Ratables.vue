@@ -51,7 +51,6 @@ export default {
         },
         async reloadRatables() {
             this.ratables = await this.service.getRatables(this.topic, this.lang)
-            console.log(this.ratables)
         }
 
     },

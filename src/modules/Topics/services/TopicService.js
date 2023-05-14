@@ -20,10 +20,13 @@ export default class TopicService {
 		return this;
 	}
 
-	async getTopics() {
+	async getTopics(filter = '', limit = 6) {
 		let fullUrl = url;
 		// fullUrl += "?perPage=" + this.perPage;
 		// fullUrl += "&page=" + this.page;
+		fullUrl += '?filter=' + filter;
+		fullUrl += '&limit=' + limit;
+		console.log(fullUrl);
 		const response = await fetch(fullUrl, {
 			headers: {
 				'Content-Type': 'application/json',

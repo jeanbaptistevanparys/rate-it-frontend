@@ -2,12 +2,12 @@
     <aside class="topics">
         <h2>TOPICS</h2>
         <div class="search">
-            <input type="text" placeholder="Search topics">
+            <input type="text" placeholder="Search topics" v-model="filter" @input="getTopics">
         </div>
         <ul>
-            <Topic v-for="topic in topics" :topic="topic" :class="{ 'selected' : parseInt(topic.id) == this.topic }"/>
+            <Topic v-for="topic in topics" :key="topic.id" :topic="topic" :class="{ 'selected' : parseInt(topic.id) == this.topic }"/>
         </ul>
-        <button>More</button>
+        <button v-if="hasTopics" @click="showMore">More</button>
     </aside>
 </template>
 <script>
@@ -26,12 +26,31 @@ export default {
     data() {
         return {
             topics: [],
+            filter: '',
+            limit: 6,
             selectedTopic: null,
             "service": new TopicService(),
         }
     },
-    async mounted() {
-        this.topics = await this.service.getTopics();
+    methods: {
+        async getTopics() {
+            if (this.filter != '') {
+                this.topics = await this.service.getTopics(this.filter);
+            } else {
+                this.topics = [];
+            }
+            this.limit = 6;
+        },
+        async showMore() {
+            this.limit += 3;
+            this.topics = await this.service.getTopics(this.filter, this.limit);
+            console.log(this.limit);
+        }
     },
+    computed: {
+        hasTopics() {
+            return this.topics.length >= 6;
+        }
+    }
 }
 </script>

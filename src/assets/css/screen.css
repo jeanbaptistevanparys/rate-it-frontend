@@ -196,6 +196,19 @@ aside.topics ul {
   border-radius: 0.75rem;
   filter: drop-shadow(0.2rem 0.2rem 0.4rem rgba(0, 0, 0, 0.25));
   color: white;
+  max-height: calc(100vh - 16rem);
+  overflow-y: scroll;
+}
+aside.topics ul::-webkit-scrollbar {
+  width: 0.5rem;
+}
+aside.topics ul::-webkit-scrollbar-track-piece {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+aside.topics ul::-webkit-scrollbar-thumb {
+  background: rgb(118, 118, 118);
+  border-radius: 1rem;
 }
 aside.topics li {
   padding: 1rem;
@@ -206,7 +219,6 @@ aside.topics li {
 }
 aside.topics li:last-child {
   border-bottom: none;
-  padding-bottom: 1.5rem;
 }
 aside.topics li h3 {
   font-size: 1rem;
