@@ -3,7 +3,7 @@
         <h2>hot topics</h2>
         <ul>
             <li @click="select(topic.id)" v-for="(topic, index) in topics" :key="topic.id">
-                <span>{{ "#" + (index + 1) }}</span> {{ topic.name }}
+                <span>{{ "#" + (index + 1) }}</span>{{ topic.name }}
             </li>
         </ul>
     </div>

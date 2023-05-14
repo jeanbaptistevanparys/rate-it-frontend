@@ -30,7 +30,7 @@ export default class TopicService {
 			},
 		});
 		const data = await response.json();
-		return data.ratables.data;
+		return data;
 	}
 
 	async rate(topic, ratableId, score) {
@@ -103,6 +103,20 @@ export default class TopicService {
 				Authorization: token,
 			},
 			body: JSON.stringify(data),
+		});
+		return response;
+	}
+
+	async deleteRatable(topicId, ratableId) {
+		let fullUrl = _api + '/topic/';
+		fullUrl += topicId + '/ratable/' + ratableId;
+
+		const response = await fetch(fullUrl, {
+			method: 'DELETE',
+			headers: {
+				'Content-Type': 'application/json',
+				Authorization: token,
+			},
 		});
 		return response;
 	}

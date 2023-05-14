@@ -1,13 +1,13 @@
 <template>
     <div class="ratables">
-        <Ratable v-for="ratable in ratables" :key="ratable.id" 
-            :ratable="ratable" :topic="this.topic" @rate="rate" @unrate="unrate"
-        />
+        <Ratable :owner="this.owner" v-for="ratable in ratables" :key="ratable.id" :ratable="ratable" :topic="this.topic"
+            @rate="rate" @unrate="unrate" @edit="edit" @deleteratable="deleteratable" />
     </div>
 </template>
 <script>
 import Ratable from './Ratable.vue'
 import RatableService from '../services/RatableService';
+import { useRouter } from 'vue-router';
 export default {
     name: 'Ratables',
     components: {
@@ -27,6 +27,8 @@ export default {
         return {
             ratables: [],
             "service": new RatableService(),
+            owner: false,
+            router: new useRouter()
         }
     },
     async mounted() {
@@ -50,9 +52,18 @@ export default {
             this.reloadRatables()
         },
         async reloadRatables() {
-            this.ratables = await this.service.getRatables(this.topic, this.lang)
-        }
+            const data = await this.service.getRatables(this.topic, this.lang)
+                this.owner = data.is_owner;
+                this.ratables = data.ratables.data
 
+        },
+        async deleteratable(id) {
+            await this.service.deleteRatable(this.topic, id)
+            this.reloadRatables()
+        },
+        edit(id) {
+            this.router.push({ name: 'ratable', params: { lang: this.lang, topicid: this.topic, ratableid: id } })
+        },
     },
 }
 </script>

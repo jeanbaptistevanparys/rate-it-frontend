@@ -40,7 +40,7 @@ export default class TopicService {
 
 	async getHotTopics() {
 		let fullUrl = url;
-		fullUrl += "/hot"
+		fullUrl += '/hot';
 		const response = await fetch(fullUrl, {
 			headers: {
 				'Content-Type': 'application/json',
@@ -63,9 +63,6 @@ export default class TopicService {
 			body: JSON.stringify({ name }),
 		});
 		const data = await response.json();
-
-		console.log(data)
-		
 		return data;
 	}
 
