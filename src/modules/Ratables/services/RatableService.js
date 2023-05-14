@@ -14,7 +14,7 @@ export default class TopicService {
 		return this;
 	}
 
-	async getRatables(topic, lang) {
+	async getRatables(topic, lang, filter) {
 		let fullUrl = _api + '/topic/';
 		fullUrl += topic + '/ratable';
 
@@ -22,6 +22,8 @@ export default class TopicService {
 		// fullUrl += "&page=" + this.page;
 
 		fullUrl += '?language=' + lang;
+
+		fullUrl += '&filter=' + filter;
 
 		const response = await fetch(fullUrl, {
 			headers: {

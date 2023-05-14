@@ -76,7 +76,6 @@ export default class TopicService {
 			},
 		});
 		const data = await response.json();
-
 		return data;
 	}
 }

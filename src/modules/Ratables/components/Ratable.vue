@@ -4,7 +4,7 @@
         <div>
 
             <button v-if="this.owner" @click="deleteratable">Delete</button>
-            <button v-if="this.owner" @click="edit">Update</button>
+            <button v-if="this.owner" @click="editratable">Update</button>
             <div>
                 <h3 v-if="this.owner">{{ this.ratable.ratable_language[0].language == 'en' ? 'English' : 'Dutch' }}</h3>
                 <h2>{{ title }}</h2>
@@ -77,8 +77,8 @@ export default {
         deleteratable() {
             this.$emit('deleteratable', this.ratable.id);
         },
-        edit() {
-            this.$emit('edit', this.ratable.id);
+        editratable() {
+            this.$emit('editratable', this.ratable.id);
         },
         rate() {
             this.$emit('rate', { ratable: this.ratable, score: this.score });
