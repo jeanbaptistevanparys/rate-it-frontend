@@ -163,13 +163,39 @@ header.top nav img {
 }
 
 aside.topics {
+  min-width: 15rem;
+  max-width: 15rem;
+  margin: 3rem;
+  height: fit-content;
+  position: relative;
+}
+aside.topics h2 {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: rgb(118, 118, 118);
+}
+aside.topics input[type=text] {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.5rem;
+  padding-left: 3rem;
+  border-radius: 0.75rem;
+  border: none;
+  background-color: rgb(70, 73, 85);
+  color: white;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0.2rem 0.2rem 0.4rem rgba(0, 0, 0, 0.25));
+  background-image: url("../img/search.svg");
+  background-repeat: no-repeat;
+  background-size: 1.5rem;
+  background-position: 0.75rem center;
+}
+aside.topics ul {
   background-color: rgb(70, 73, 85);
   border-radius: 0.75rem;
   filter: drop-shadow(0.2rem 0.2rem 0.4rem rgba(0, 0, 0, 0.25));
   color: white;
-  width: 15rem;
-  margin: 3rem;
-  height: fit-content;
 }
 aside.topics li {
   padding: 1rem;
@@ -212,12 +238,11 @@ aside.topics button {
 
 div.ratables {
   overflow-y: scroll;
-  margin-right: 3rem;
   padding-top: 3rem;
+  margin-right: 3rem;
   padding-right: 1rem;
   height: calc(100vh - 4.5rem - 3rem);
-  width: 52rem;
-  scrollbar-width: thin;
+  width: 100%;
 }
 div.ratables::-webkit-scrollbar {
   width: 0.5rem;
@@ -325,7 +350,6 @@ article.ratable form input[type=submit].unrate {
 }
 
 .hot-topics {
-  width: 52rem;
   margin-top: 3rem;
 }
 .hot-topics h2 {

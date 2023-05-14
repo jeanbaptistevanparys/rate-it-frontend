@@ -3,12 +3,11 @@
 
 div.ratables {
 	overflow-y: scroll;
-	margin-right: 3rem;
 	padding-top: 3rem;
+	margin-right: 3rem;
 	padding-right: 1rem;
 	height: calc(100vh - 4.5rem - 3rem); // minus header margin
-	width: calc(70rem - 15rem - 3rem); // minus aside width and margin
-	scrollbar-width: thin;
+	width: 100%;
 
 	&::-webkit-scrollbar {
 		width: 0.5rem;

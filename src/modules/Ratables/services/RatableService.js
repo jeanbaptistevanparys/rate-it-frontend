@@ -30,7 +30,7 @@ export default class TopicService {
 			},
 		});
 		const data = await response.json();
-		return data.data;
+		return data.ratables.data;
 	}
 
 	async rate(topic, ratableId, score) {

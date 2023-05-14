@@ -1,5 +1,9 @@
 <template>
     <aside class="topics">
+        <h2>TOPICS</h2>
+        <div class="search">
+            <input type="text" placeholder="Search topics">
+        </div>
         <ul>
             <Topic v-for="topic in topics" :topic="topic" :class="{ 'selected' : parseInt(topic.id) == this.topic }"/>
         </ul>
