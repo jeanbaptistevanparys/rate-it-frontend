@@ -1,39 +1,45 @@
 <template>
-    <h3>Create or edit of create ratable</h3>
-    <form v-if="ratable === null" @submit.prevent>
-        <div>
-            <h4>English</h4>
-            <input v-model="enName" type="text" placeholder="Enter name" required>
-            <textarea v-model="enDiscription" name="discription" id="" cols="30" rows="10" required>
-            </textarea>
-        </div>
-        <div>
-            <h4>Nederlands</h4>
-            <input v-model="nlName" type="text" placeholder="Enter name" required>
-            <textarea v-model="nlDiscription" name="discription" cols="30" rows="10" required>
-            </textarea>
-        </div>
-        <input v-on:change="filechange" type="file" >
-        <input @click="handelsubmision" type="submit" value="Submit">
-    </form>
-    <form v-else @submit.prevent>
-        <div>
-            <h4>{{ this.ratable.ratable_language[0].language == 'en' ? 'English' : 'Nederlands' }}</h4>
-            <input type="text" v-model="this.ratable.ratable_language[0].name" required>
-            <textarea name="discription" v-model="this.ratable.ratable_language[0].description" cols="30" rows="10"
-                required>
-            </textarea>
-        </div>
-        <div>
-            <h4>{{ this.ratable.ratable_language[1].language == 'en' ? 'English' : 'Nederlands' }}</h4>
-            <input type="text" v-model="this.ratable.ratable_language[1].name" required>
-            <textarea name="discription" v-model="this.ratable.ratable_language[1].description" cols="30" rows="10"
-                required>
-            </textarea>
-        </div>
-        <input v-on:change="filechange" type="file" accept="image/*">
-        <input @click="handelsubmision" type="submit" value="Submit">
-    </form>
+    <article class="ratable-form">
+        <h3>Create or edit ratable</h3>
+        <form v-if="ratable === null" @submit.prevent>
+            <div>
+                <div>
+                    <h4>English</h4>
+                    <input v-model="enName" type="text" placeholder="Enter name" required>
+                    <textarea v-model="enDiscription" placeholder="Enter description" name="discription" id="" cols="30" rows="10" required>
+                    </textarea>
+                </div>
+                <div>
+                    <h4>Nederlands</h4>
+                    <input v-model="nlName" type="text" placeholder="Enter name" required>
+                    <textarea v-model="nlDiscription" placeholder="Enter description" name="discription" cols="30" rows="10" required>
+                    </textarea>
+                </div>
+            </div>
+            <div>
+                <input v-on:change="filechange" type="file" >
+                <input @click="handelsubmision" type="submit" value="Submit">
+            </div>
+        </form>
+        <form v-else @submit.prevent>
+            <div>
+                <h4>{{ this.ratable.ratable_language[0].language == 'en' ? 'English' : 'Nederlands' }}</h4>
+                <input type="text" v-model="this.ratable.ratable_language[0].name" required>
+                <textarea name="discription" v-model="this.ratable.ratable_language[0].description" cols="30" rows="10"
+                    required>
+                </textarea>
+            </div>
+            <div>
+                <h4>{{ this.ratable.ratable_language[1].language == 'en' ? 'English' : 'Nederlands' }}</h4>
+                <input type="text" v-model="this.ratable.ratable_language[1].name" required>
+                <textarea name="discription" v-model="this.ratable.ratable_language[1].description" cols="30" rows="10"
+                    required>
+                </textarea>
+            </div>
+            <input v-on:change="filechange" type="file" accept="image/*">
+            <input @click="handelsubmision" type="submit" value="Submit">
+        </form>
+    </article>
 </template>
 <script>
 import RatableService from '../services/RatableService';
