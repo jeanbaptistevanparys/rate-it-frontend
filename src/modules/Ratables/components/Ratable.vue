@@ -2,22 +2,23 @@
     <article class="ratable">
         <img :src="image" :alt="title">
         <div>
-
-            <button v-if="this.owner" @click="deleteratable">Delete</button>
-            <button v-if="this.owner" @click="editratable">Update</button>
+            <div class="buttons">
+                <button class="remove" v-if="this.owner" @click="deleteratable">Remove</button>
+                <button class="edit" v-if="this.owner" @click="editratable">Edit</button>
+            </div>
             <div>
-                <h3 v-if="this.owner">{{ this.ratable.ratable_language[0].language == 'en' ? 'English' : 'Dutch' }}</h3>
-                <h2>{{ title }}</h2>
+                <h4 v-if="this.owner">{{ this.ratable.ratable_language[0].language == 'en' ? 'English' : 'Dutch' }}</h4>
+                <h3>{{ title }}</h3>
                 <p>{{ discription }}</p>
             </div>
             <div v-if="this.owner">
-                <h3>{{ this.ratable.ratable_language[0].language == 'en' ? 'English' : 'Dutch' }}</h3>
-                <h2>{{ title2 }}</h2>
+                <h4>{{ this.ratable.ratable_language[1].language == 'en' ? 'English' : 'Dutch' }}</h4>
+                <h3>{{ title2 }}</h3>
                 <p>{{ discription2 }}</p>
             </div>
             <form @submit.prevent>
 
-                <h3>{{ avg }}</h3>
+                <h5>{{ avg }}</h5>
 
                 <div>
                     <input type="number" min="0" max="10" placeholder="0" :class="{ unrate: rating != null }"

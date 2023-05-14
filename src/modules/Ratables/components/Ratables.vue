@@ -1,10 +1,12 @@
 <template>
     <div class="ratables">
-        <h2>Ratables</h2>
-        <div class="search">
-            <input type="text" placeholder="Search Ratables" v-model="filter" @input="reloadRatables">
-            <button v-if="this.owner"  @click="createratable">create</button>
-            <button v-if="this.owner" @click="deletetopic">delete</button>
+        <div>
+            <div>
+                <h2>Ratables</h2>
+                <button class="delete" v-if="this.owner" @click="deletetopic">Delete</button>
+                <button class="create" v-if="this.owner"  @click="createratable">Create</button>
+            </div>
+            <input class="search" type="text" placeholder="Search ratables" v-model="filter" @input="reloadRatables">
         </div>
         <Ratable :owner="this.owner" v-for="ratable in ratables" :key="ratable.id" :ratable="ratable" :topic="this.topic"
             @rate="rate" @unrate="unrate" @editratable="editratable" @deleteratable="deleteratable" />

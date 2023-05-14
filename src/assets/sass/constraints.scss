@@ -17,3 +17,30 @@ $font: 'Lexend', Arial, Helvetica, sans-serif;
 body {
     font-family: $font;
 }
+
+@mixin search {
+    box-sizing: border-box;
+    padding: 0.5rem;
+    padding-left: 3rem;
+    border-radius: 0.75rem;
+    border: none;
+    background-color: $color-rate-it-background-secundary;
+    color: white;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    filter: $filter;
+    background-image: url('../img/search.svg');
+    background-repeat: no-repeat;
+    background-size: 1.5rem;
+    background-position: 0.75rem center;
+}
+
+@mixin button {
+    padding: 0.5rem;
+    border-radius: 0.75rem;
+    border: none;
+    background-color: $color-rate-it-green;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+}

@@ -23,21 +23,25 @@
         </form>
         <form v-else @submit.prevent>
             <div>
-                <h4>{{ this.ratable.ratable_language[0].language == 'en' ? 'English' : 'Nederlands' }}</h4>
-                <input type="text" v-model="this.ratable.ratable_language[0].name" required>
-                <textarea name="discription" v-model="this.ratable.ratable_language[0].description" cols="30" rows="10"
-                    required>
-                </textarea>
+                <div>
+                    <h4>{{ this.ratable.ratable_language[0].language == 'en' ? 'English' : 'Nederlands' }}</h4>
+                    <input type="text" v-model="this.ratable.ratable_language[0].name" required>
+                    <textarea name="discription" v-model="this.ratable.ratable_language[0].description" cols="30" rows="10"
+                        required>
+                    </textarea>
+                </div>
+                <div>
+                    <h4>{{ this.ratable.ratable_language[1].language == 'en' ? 'English' : 'Nederlands' }}</h4>
+                    <input type="text" v-model="this.ratable.ratable_language[1].name" required>
+                    <textarea name="discription" v-model="this.ratable.ratable_language[1].description" cols="30" rows="10"
+                        required>
+                    </textarea>
+                </div>
             </div>
             <div>
-                <h4>{{ this.ratable.ratable_language[1].language == 'en' ? 'English' : 'Nederlands' }}</h4>
-                <input type="text" v-model="this.ratable.ratable_language[1].name" required>
-                <textarea name="discription" v-model="this.ratable.ratable_language[1].description" cols="30" rows="10"
-                    required>
-                </textarea>
+                <input v-on:change="filechange" type="file" accept="image/*">
+                <input @click="handelsubmision" type="submit" value="Submit">
             </div>
-            <input v-on:change="filechange" type="file" accept="image/*">
-            <input @click="handelsubmision" type="submit" value="Submit">
         </form>
     </article>
 </template>

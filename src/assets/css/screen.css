@@ -175,7 +175,6 @@ aside.topics h2 {
   color: rgb(118, 118, 118);
 }
 aside.topics input[type=text] {
-  width: 100%;
   box-sizing: border-box;
   padding: 0.5rem;
   padding-left: 3rem;
@@ -190,6 +189,7 @@ aside.topics input[type=text] {
   background-repeat: no-repeat;
   background-size: 1.5rem;
   background-position: 0.75rem center;
+  width: 100%;
 }
 aside.topics ul {
   background-color: rgb(70, 73, 85);
@@ -260,6 +260,59 @@ div.ratables {
   height: calc(100vh - 4.5rem - 3rem);
   width: 100%;
 }
+div.ratables > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+div.ratables > div > div {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+div.ratables h2 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: rgb(118, 118, 118);
+  margin-bottom: 1rem;
+  display: inline;
+}
+div.ratables > div button {
+  padding: 0.5rem;
+  border-radius: 0.75rem;
+  border: none;
+  background-color: rgb(32, 180, 137);
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-left: 1rem;
+  padding-left: 2rem;
+  background-position: 0.25rem center;
+  background-repeat: no-repeat;
+  background-size: 1.5rem;
+}
+div.ratables > div button.delete {
+  background-image: url("../img/delete.svg");
+}
+div.ratables > div button.create {
+  background-image: url("../img/add.svg");
+}
+div.ratables .search {
+  box-sizing: border-box;
+  padding: 0.5rem;
+  padding-left: 3rem;
+  border-radius: 0.75rem;
+  border: none;
+  background-color: rgb(70, 73, 85);
+  color: white;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0.2rem 0.2rem 0.4rem rgba(0, 0, 0, 0.25));
+  background-image: url("../img/search.svg");
+  background-repeat: no-repeat;
+  background-size: 1.5rem;
+  background-position: 0.75rem center;
+}
 div.ratables::-webkit-scrollbar {
   width: 0.5rem;
 }
@@ -282,6 +335,7 @@ article.ratable {
   border-radius: 0.75rem;
   filter: drop-shadow(0.2rem 0.2rem 0.4rem rgba(0, 0, 0, 0.25));
   margin-bottom: 2rem;
+  position: relative;
 }
 article.ratable img {
   width: 14rem;
@@ -297,7 +351,7 @@ article.ratable > div {
   flex-direction: column;
   width: 100%;
 }
-article.ratable h2 {
+article.ratable h3 {
   font-size: 1.5rem;
   margin-bottom: 1rem;
   color: white;
@@ -306,15 +360,51 @@ article.ratable p {
   font-size: 1rem;
   font-weight: lighter;
   color: white;
+  margin-bottom: 1rem;
+}
+article.ratable h4 {
+  font-size: 1rem;
+  color: rgb(118, 118, 118);
+  background-color: rgb(55, 58, 66);
+  display: inline-block;
+  padding: 0.25rem;
+  margin-bottom: 0.25rem;
+  border-radius: 0.5rem;
+}
+article.ratable .buttons {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+}
+article.ratable .buttons button {
+  padding: 0.5rem;
+  border-radius: 0.75rem;
+  border: none;
+  background-color: rgb(32, 180, 137);
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  padding-left: 2rem;
+  background-position: 0.25rem center;
+  background-repeat: no-repeat;
+  background-size: 1.5rem;
+}
+article.ratable .buttons button:first-child {
+  margin-right: 1rem;
+}
+article.ratable .buttons button.edit {
+  background-image: url("../img/edit.svg");
+}
+article.ratable .buttons button.remove {
+  background-image: url("../img/remove.svg");
 }
 article.ratable form {
-  margin-top: 1rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
-article.ratable form h3 {
+article.ratable form h5 {
   color: white;
   padding: 0.5rem;
   font-size: 1.5rem;
@@ -354,14 +444,11 @@ article.ratable form input[type=number].unrate {
 article.ratable form input[type=submit] {
   padding: 0.5rem;
   border-radius: 0.75rem;
-  height: 2rem;
   border: none;
   background-color: rgb(32, 180, 137);
   color: white;
   font-size: 1rem;
-  width: 4rem;
   cursor: pointer;
-  background-color: rgb(32, 180, 137);
 }
 article.ratable form input[type=submit].unrate {
   background-color: rgb(55, 58, 66);

@@ -14,21 +14,8 @@ aside.topics {
 	}
 
 	input[type='text'] {
+		@include constraints.search;
 		width: 100%;
-		box-sizing: border-box;
-		padding: 0.5rem;
-		padding-left: 3rem;
-		border-radius: 0.75rem;
-		border: none;
-		background-color: constraints.$color-rate-it-background-secundary;
-		color: white;
-		font-size: 1.25rem;
-		margin-bottom: 1rem;
-		filter: constraints.$filter;
-		background-image: url('../img/search.svg');
-		background-repeat: no-repeat;
-		background-size: 1.5rem;
-		background-position: 0.75rem center;
 	}
 
 	ul {
