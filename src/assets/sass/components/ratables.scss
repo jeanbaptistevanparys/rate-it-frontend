@@ -13,10 +13,6 @@ div.ratables {
 		width: 0.5rem;
 	}
 
-	&::-webkit-scrollbar-track {
-		background: constraints.$color-rate-it-background;
-	}
-
 	&::-webkit-scrollbar-track-piece {
 		margin-top: 3rem;
 		margin-bottom: 2rem;

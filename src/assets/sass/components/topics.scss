@@ -42,11 +42,6 @@ aside.topics {
 		&::-webkit-scrollbar {
 			width: 0.5rem;
 		}
-
-		&::-webkit-scrollbar-track {
-			background: constraints.$color-rate-it-background-secundary;
-			border-radius: 0 2rem 2rem 0;
-		}
 	
 		&::-webkit-scrollbar-track-piece {
 			margin-top: 1rem;
