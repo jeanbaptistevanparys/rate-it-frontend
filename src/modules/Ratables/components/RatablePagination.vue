@@ -18,15 +18,15 @@ export default {
     methods: {
         previous() {
             const previousPage = parseInt(this.page) - 1;
-            this.$emit('previous', previousPage)
+            this.$emit('previous', previousPage);
         },
         next() {
             const nextPage = parseInt(this.page) + 1;
-            this.$emit('next', nextPage)
+            this.$emit('next', nextPage);
         },
         updatePage(event) {
-            this.$emit('update:page', event.target.value)
+            this.$emit('update:page', event.target.value);
         }
     }
-}
+};
 </script>

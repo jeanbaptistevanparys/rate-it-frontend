@@ -71,7 +71,7 @@ export default {
             nlName: '',
             nlDiscription: '',
             image: null
-        }
+        };
     },
     async mounted() {
         if (this.ratableid) {
@@ -89,8 +89,8 @@ export default {
                     this.ratable.ratable_language[1].language === 'en' ? this.ratable.ratable_language[0].description : this.ratable.ratable_language[1].description,
                 );
                 const response = await this.service.updateRatable(this.topicid, this.ratableid, formdata);
-                console.log(formdata)
-                console.log(response)
+                console.log(formdata);
+                console.log(response);
 
             } else {
                 const formdata = this.toFormdata(
@@ -100,8 +100,8 @@ export default {
                     this.nlDiscription,
                 );
                 const response = await this.service.createRatable(this.topicid, formdata);
-                console.log(formdata.image)
-                console.log(response)
+                console.log(formdata.image);
+                console.log(response);
             }
             this.$router.push({ name: 'topic', params: { id: this.topicid } });
         },
@@ -137,5 +137,5 @@ export default {
         }
 
     },
-}
+};
 </script>

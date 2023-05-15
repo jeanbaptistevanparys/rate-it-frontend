@@ -6,7 +6,7 @@ const token = localStorage.getItem('token');
 
 export default class TopicService {
 	constructor() {
-		this.page = 1;
+			this.page = 1;
 		this.perPage = 6;
 	}
 
@@ -22,8 +22,6 @@ export default class TopicService {
 
 	async getTopics(filter = '', limit = 6) {
 		let fullUrl = url;
-		// fullUrl += "?perPage=" + this.perPage;
-		// fullUrl += "&page=" + this.page;
 		fullUrl += '?filter=' + filter;
 		fullUrl += '&limit=' + limit;
 		const response = await fetch(fullUrl, {
@@ -60,7 +58,7 @@ export default class TopicService {
 	}
 
 	async deleteTopic(id) {
-		let fullUrl = url + '/' + id;
+		const fullUrl = `${url}/${id}`;
 		const response = await fetch(fullUrl, {
 			method: 'DELETE',
 			headers: {

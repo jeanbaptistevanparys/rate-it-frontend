@@ -88,5 +88,5 @@ export default {
             this.$emit('unrate', { ratable: this.ratable, rating: rating });
         }
     },
-}
+};
 </script>
