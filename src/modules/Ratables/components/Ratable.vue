@@ -7,12 +7,12 @@
                 <button class="edit" v-if="this.owner" @click="editratable">Edit</button>
             </div>
             <div>
-                <h4 v-if="this.owner">{{ this.ratable.ratable_language[0].language == 'en' ? 'English' : 'Dutch' }}</h4>
+                <h4 v-if="this.owner">{{ this.ratable.ratable_language[0].language === 'en' ? 'English' : 'Dutch' }}</h4>
                 <h3>{{ title }}</h3>
                 <p>{{ discription }}</p>
             </div>
             <div v-if="this.owner">
-                <h4>{{ this.ratable.ratable_language[1].language == 'en' ? 'English' : 'Dutch' }}</h4>
+                <h4>{{ this.ratable.ratable_language[1].language === 'en' ? 'English' : 'Dutch' }}</h4>
                 <h3>{{ title2 }}</h3>
                 <p>{{ discription2 }}</p>
             </div>

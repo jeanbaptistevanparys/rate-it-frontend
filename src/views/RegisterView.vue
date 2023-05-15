@@ -23,7 +23,7 @@
 
                 <button @click="register" type="submit">Register</button>
             </form>
-            <p>Already have an acount?  <RouterLink class="link" to="/login">Sign in</RouterLink> </p>
+            <p>Already have an account?  <RouterLink class="link" to="/login">Sign in</RouterLink> </p>
 
         </aside>
 
@@ -43,6 +43,9 @@ export default {
         return {
             "service": new AuthService(),
             router: new useRouter(),
+            username: '',
+            email: '',
+            password: '',
         }
     },
     methods: {
@@ -51,7 +54,7 @@ export default {
             if (!res) {
                 alert("the fields are not entered correctly try again please")
             }else{
-                this.$router.push({ name: 'login' })
+                await this.router.push({name: 'login'})
             }
         }
     },

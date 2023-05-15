@@ -1,5 +1,4 @@
-import { _api } from '../../../config.js';
-import { useRoute } from 'vue-router';
+import {_api} from '@/config';
 
 const token = localStorage.getItem('token');
 
@@ -31,38 +30,34 @@ export default class TopicService {
 				Authorization: token,
 			},
 		});
-		const data = await response.json();
-		return data;
+		return await response.json();
 	}
 
 	async rate(topic, ratableId, score) {
 		let fullUrl = _api + '/topic/';
 		fullUrl += topic + '/ratable/' + ratableId + '/rating';
 
-		const response = await fetch(fullUrl, {
+		return await fetch(fullUrl, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
 				Authorization: token,
 			},
-			body: JSON.stringify({ score }),
+			body: JSON.stringify({score}),
 		});
-
-		return response;
 	}
 
 	async unrate(topic, ratableId, rating) {
 		let fullUrl = _api + '/topic/';
 		fullUrl += topic + '/ratable/' + ratableId + '/rating/' + rating;
 
-		const response = await fetch(fullUrl, {
+		return await fetch(fullUrl, {
 			method: 'DELETE',
 			headers: {
 				'Content-Type': 'application/json',
 				Authorization: token,
 			},
 		});
-		return response;
 	}
 
 	async getRatable(topicId, ratableId) {
@@ -75,15 +70,14 @@ export default class TopicService {
 				Authorization: token,
 			},
 		});
-		const data = await response.json();
-		return data;
+		return await response.json();
 	}
 
 	async updateRatable(topicId, ratableId, data) {
 		let fullUrl = _api + '/topic/';
 		fullUrl += topicId + '/ratable/' + ratableId;
 
-		const response = await fetch(fullUrl, {
+		return await fetch(fullUrl, {
 			method: 'PUT',
 			headers: {
 				'Content-Type': 'application/json',
@@ -91,14 +85,13 @@ export default class TopicService {
 			},
 			body: JSON.stringify(data),
 		});
-		return response;
 	}
 
 	async createRatable(topicId, data) {
 		let fullUrl = _api + '/topic/';
 		fullUrl += topicId + '/ratable';
 
-		const response = await fetch(fullUrl, {
+		return await fetch(fullUrl, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
@@ -106,20 +99,18 @@ export default class TopicService {
 			},
 			body: JSON.stringify(data),
 		});
-		return response;
 	}
 
 	async deleteRatable(topicId, ratableId) {
 		let fullUrl = _api + '/topic/';
 		fullUrl += topicId + '/ratable/' + ratableId;
 
-		const response = await fetch(fullUrl, {
+		return await fetch(fullUrl, {
 			method: 'DELETE',
 			headers: {
 				'Content-Type': 'application/json',
 				Authorization: token,
 			},
 		});
-		return response;
 	}
 }

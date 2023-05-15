@@ -1,4 +1,4 @@
-import { _api } from '../../../config.js';
+import {_api} from '@/config';
 
 const url = _api + '/topic';
 
@@ -26,16 +26,13 @@ export default class TopicService {
 		// fullUrl += "&page=" + this.page;
 		fullUrl += '?filter=' + filter;
 		fullUrl += '&limit=' + limit;
-		console.log(fullUrl);
 		const response = await fetch(fullUrl, {
 			headers: {
 				'Content-Type': 'application/json',
 				Authorization: token,
 			},
 		});
-		const data = await response.json();
-
-		return data;
+		return await response.json();
 	}
 
 	async getHotTopics() {
@@ -47,14 +44,11 @@ export default class TopicService {
 				Authorization: token,
 			},
 		});
-		const data = await response.json();
-
-		return data;
+		return await response.json();
 	}
 
 	async createTopic(name) {
-		let fullUrl = url;
-		const response = await fetch(fullUrl, {
+		const response = await fetch(url, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
@@ -62,8 +56,7 @@ export default class TopicService {
 			},
 			body: JSON.stringify({ name }),
 		});
-		const data = await response.json();
-		return data;
+		return await response.json();
 	}
 
 	async deleteTopic(id) {
@@ -75,7 +68,6 @@ export default class TopicService {
 				Authorization: token,
 			},
 		});
-		const data = await response.json();
-		return data;
+		return await response.json();
 	}
 }

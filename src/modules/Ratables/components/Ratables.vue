@@ -56,11 +56,11 @@ export default {
     methods: {
         async rate(emit) {
             await this.service.rate(this.topic, emit.ratable.id, emit.score)
-            this.reloadRatables()
+            await this.reloadRatables()
         },
         async unrate(emit) {
             await this.service.unrate(this.topic, emit.ratable.id, emit.rating.id)
-            this.reloadRatables()
+            await this.reloadRatables()
         },
         async reloadRatables() {
             const data = await this.service.getRatables(this.topic, this.lang, this.filter)
@@ -70,7 +70,7 @@ export default {
         },
         async deleteratable(id) {
             await this.service.deleteRatable(this.topic, id)
-            this.reloadRatables()
+            await this.reloadRatables()
         },
         editratable(id) {
             this.router.push({ name: 'ratable', params: { lang: this.lang, topicid: this.topic, ratableid: id } })

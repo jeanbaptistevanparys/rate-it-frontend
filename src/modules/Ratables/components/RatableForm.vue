@@ -24,14 +24,14 @@
         <form v-else @submit.prevent>
             <div>
                 <div>
-                    <h4>{{ this.ratable.ratable_language[0].language == 'en' ? 'English' : 'Nederlands' }}</h4>
+                    <h4>{{ this.ratable.ratable_language[0].language === 'en' ? 'English' : 'Nederlands' }}</h4>
                     <input type="text" v-model="this.ratable.ratable_language[0].name" required>
                     <textarea name="discription" v-model="this.ratable.ratable_language[0].description" cols="30" rows="10"
                         required>
                     </textarea>
                 </div>
                 <div>
-                    <h4>{{ this.ratable.ratable_language[1].language == 'en' ? 'English' : 'Nederlands' }}</h4>
+                    <h4>{{ this.ratable.ratable_language[1].language === 'en' ? 'English' : 'Nederlands' }}</h4>
                     <input type="text" v-model="this.ratable.ratable_language[1].name" required>
                     <textarea name="discription" v-model="this.ratable.ratable_language[1].description" cols="30" rows="10"
                         required>
@@ -47,6 +47,7 @@
 </template>
 <script>
 import RatableService from '../services/RatableService';
+
 export default {
     name: 'RatableForm',
     components: {
@@ -82,10 +83,10 @@ export default {
         async handelsubmision() {
             if (this.ratableid) {
                 const formdata = this.toFormdata(
-                    this.ratable.ratable_language[0].language == 'en' ? this.ratable.ratable_language[0].name : this.ratable.ratable_language[1].name,
-                    this.ratable.ratable_language[0].language == 'en' ? this.ratable.ratable_language[0].description : this.ratable.ratable_language[1].description,
-                    this.ratable.ratable_language[1].language == 'en' ? this.ratable.ratable_language[0].name : this.ratable.ratable_language[1].name,
-                    this.ratable.ratable_language[1].language == 'en' ? this.ratable.ratable_language[0].description : this.ratable.ratable_language[1].description,
+                    this.ratable.ratable_language[0].language === 'en' ? this.ratable.ratable_language[0].name : this.ratable.ratable_language[1].name,
+                    this.ratable.ratable_language[0].language === 'en' ? this.ratable.ratable_language[0].description : this.ratable.ratable_language[1].description,
+                    this.ratable.ratable_language[1].language === 'en' ? this.ratable.ratable_language[0].name : this.ratable.ratable_language[1].name,
+                    this.ratable.ratable_language[1].language === 'en' ? this.ratable.ratable_language[0].description : this.ratable.ratable_language[1].description,
                 );
                 const response = await this.service.updateRatable(this.topicid, this.ratableid, formdata);
                 console.log(formdata)
@@ -118,7 +119,7 @@ export default {
             reader.readAsDataURL(files[0]);
         },
         toFormdata(name, discription, name2, discription2) {
-            const formData = {
+            return {
                 translations: [
                     {
                         language: 'en',
@@ -132,8 +133,7 @@ export default {
                     }
                 ],
                 image: this.image
-            }
-            return formData;
+            };
         }
 
     },

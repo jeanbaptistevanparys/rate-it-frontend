@@ -1,4 +1,4 @@
-import { _api } from '../../../config.js';
+import { _api } from '@/config';
 export default class AuthService {
 	async login(email, password) {
 		console.log('login as ' + email + ' ' + password);
@@ -16,7 +16,7 @@ export default class AuthService {
 		localStorage.setItem('token', 'Bearer ' + data.token);
 		localStorage.setItem('userId', data.userId);
 
-		return response.status == 200;
+		return response.status === 200;
 	}
 
 	async register(name, email, password) {
@@ -30,6 +30,6 @@ export default class AuthService {
 		});
 		// TODO: handle errors
 
-		return response.status == 204;
+		return response.status === 204;
 	}
 }
