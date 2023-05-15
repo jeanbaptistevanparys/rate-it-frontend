@@ -560,4 +560,33 @@ article.ratable form input[type=submit].unrate {
   cursor: pointer;
 }
 
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.pagination input {
+  box-sizing: border-box;
+  padding: 0.5rem;
+  border-radius: 0.75rem;
+  border: none;
+  background-color: rgb(70, 73, 85);
+  color: white;
+  font-size: 1rem;
+  filter: drop-shadow(0.2rem 0.2rem 0.4rem rgba(0, 0, 0, 0.25));
+  margin: 0 0.5rem;
+  width: 3rem;
+  text-align: center;
+}
+.pagination button {
+  padding: 0.5rem;
+  border-radius: 0.75rem;
+  border: none;
+  background-color: rgb(32, 180, 137);
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
 /*# sourceMappingURL=screen.css.map */

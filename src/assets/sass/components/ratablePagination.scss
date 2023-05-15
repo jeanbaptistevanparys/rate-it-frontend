@@ -1,0 +1,19 @@
+@use '../constraints.scss';
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+
+    input {
+        @include constraints.input;
+        margin: 0 0.5rem;
+        width: 3rem;
+        text-align: center
+    }
+
+    button {
+        @include constraints.button;
+    }
+}

@@ -10,17 +10,19 @@
         </div>
         <Ratable :owner="this.owner" v-for="ratable in ratables" :key="ratable.id" :ratable="ratable" :topic="this.topic"
             @rate="rate" @unrate="unrate" @editratable="editratable" @deleteratable="deleteratable" />
+        <ratable-pagination v-model:page="page" @previous="setPage" @next="setPage"/>
     </div>
 </template>
 <script>
 import Ratable from './Ratable.vue'
 import RatableService from '../services/RatableService';
+import RatablePagination from './RatablePagination.vue'
 import { useRouter } from 'vue-router';
 import TopicService from '../../Topics/services/TopicService';
 export default {
     name: 'Ratables',
     components: {
-        Ratable,
+        Ratable, RatablePagination
     },
     props: {
         topic: {
@@ -40,6 +42,7 @@ export default {
             owner: false,
             router: new useRouter(),
             filter: '',
+            page: 1,
         }
     },
     async mounted() {
@@ -52,8 +55,18 @@ export default {
         lang: function () {
             this.reloadRatables()
         },
+        page: function () {
+            this.reloadRatables()
+        },
     },
     methods: {
+        setPage(page) {
+            page = parseInt(page)
+            if (page < 1) {
+                page = 1
+            }
+            this.page = page
+        },
         async rate(emit) {
             await this.service.rate(this.topic, emit.ratable.id, emit.score)
             await this.reloadRatables()
@@ -63,7 +76,9 @@ export default {
             await this.reloadRatables()
         },
         async reloadRatables() {
-            const data = await this.service.getRatables(this.topic, this.lang, this.filter)
+            const data = await this.service
+                .setPage(this.page)
+                .getRatables(this.topic, this.lang, this.filter, this.page)
             this.owner = data.is_owner;
             this.ratables = data.ratables.data
 

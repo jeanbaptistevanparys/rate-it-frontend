@@ -17,12 +17,11 @@ export default class TopicService {
 		let fullUrl = _api + '/topic/';
 		fullUrl += topic + '/ratable';
 
-		// fullUrl += "?perPage=" + this.perPage;
-		// fullUrl += "&page=" + this.page;
-
 		fullUrl += '?language=' + lang;
 
 		fullUrl += '&filter=' + filter;
+
+		fullUrl += "&page=" + this.page;
 
 		const response = await fetch(fullUrl, {
 			headers: {
