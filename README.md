@@ -37,3 +37,11 @@ npm run build
 ```js
 export const _api = 'http://localhost/api';
 ```
+### we have a database isue with uploading images to the database
+### we have a little fix by setting the image column to longblob manually in the database
+```sql
+use rate_it;
+alter table ratables
+    modify image longblob not null;
+```
+### this must be done because laravel does not support longblob by default
