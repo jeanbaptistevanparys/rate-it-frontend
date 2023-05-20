@@ -10,7 +10,7 @@
   </main>
 </template>
 <script>
-import { useRouter, useRoute } from 'vue-router';
+import { useRoute } from 'vue-router';
 import Ratables from '../modules/Ratables/components/Ratables.vue';
 import Top from '../modules/Top/components/Top.vue';
 import Topics from '../modules/Topics/components/Topics.vue';
@@ -23,11 +23,8 @@ export default {
   },
   data() {
     return {
-      router: useRouter(),
       route: useRoute(),
     }
-  },
-  methods: {
-  },
+  }
 }
 </script>

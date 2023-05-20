@@ -9,7 +9,6 @@
 import Top from '../modules/Top/components/Top.vue';
 import Topics from '../modules/Topics/components/Topics.vue';
 import HotTopics from '../modules/Topics/components/HotTopics.vue';
-import { useRoute, useRouter } from 'vue-router';
 export default {
   name: 'HomeView',
   components: {

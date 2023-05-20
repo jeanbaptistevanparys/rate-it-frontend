@@ -9,7 +9,7 @@
   </main>
 </template>
 <script>
-import { useRouter, useRoute } from 'vue-router';
+import { useRoute } from 'vue-router';
 import Top from '../modules/Top/components/Top.vue';
 import RatableForm from '../modules/Ratables/components/RatableForm.vue';
 export default {
@@ -20,12 +20,8 @@ export default {
   },
   data() {
     return {
-      router: useRouter(),
       route: useRoute(),
     }
   },
-  methods: {
-  },
-
 }
 </script>
