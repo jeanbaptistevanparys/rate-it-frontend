@@ -1,8 +1,6 @@
 import { _api } from '@/config';
 export default class AuthService {
 	async login(email, password) {
-		console.log('login as ' + email + ' ' + password);
-
 		let fullUrl = _api + '/login';
 		const response = await fetch(fullUrl, {
 			method: 'POST',

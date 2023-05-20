@@ -23,7 +23,6 @@ export default {
     },
     async mounted() {
         this.topics = await this.service.getHotTopics();
-        console.log(this.topics);
     },
     methods: {
         select(topicId) {
