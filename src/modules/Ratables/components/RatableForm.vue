@@ -89,9 +89,10 @@ export default {
                     this.ratable.ratable_language[1].language === 'en' ? this.ratable.ratable_language[0].description : this.ratable.ratable_language[1].description,
                 );
                 const response = await this.service.updateRatable(this.topicid, this.ratableid, formdata);
-                console.log(formdata);
-                console.log(response);
-
+                if (response.status !== 200) {
+                    allert('Looks like you tried to do something you are not allowed to do or something went wrong');
+                    this.$router.push({ name: 'login' });
+                }
             } else {
                 const formdata = this.toFormdata(
                     this.enName,
@@ -100,8 +101,10 @@ export default {
                     this.nlDiscription,
                 );
                 const response = await this.service.createRatable(this.topicid, formdata);
-                console.log(formdata.image);
-                console.log(response);
+                if (response.status !== 201 ) {
+                    allert('Looks like you tried to do something you are not allowed to do or something went wrong');
+                    this.router.push({ name: 'login' });
+                }
             }
             this.$router.push({ name: 'topic', params: { id: this.topicid } });
         },

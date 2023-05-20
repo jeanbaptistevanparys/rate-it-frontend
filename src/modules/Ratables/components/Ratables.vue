@@ -93,8 +93,13 @@ export default {
         createratable() {
             this.router.push({ name: 'ratable', params: { lang: this.lang, topicid: this.topic } });
         },
-        deletetopic() {
-            this.TopicService.deleteTopic(this.topic);
+        async deletetopic() {
+            const response = this.TopicService.deleteTopic(this.topic);
+            if (response.status !== 200) {
+                alert('you may have tried to delete a topic that is not yours');
+                this.router.push({ name: 'login' });
+            }
+            else
             this.router.push({ name: 'home', params: { lang: this.lang } });
         }
     },
