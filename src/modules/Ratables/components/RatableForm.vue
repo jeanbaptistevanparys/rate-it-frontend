@@ -47,7 +47,7 @@
 </template>
 <script>
 import RatableService from '../services/RatableService';
-
+import { useRouter } from 'vue-router';
 export default {
     name: 'RatableForm',
     components: {
@@ -70,12 +70,16 @@ export default {
             enDiscription: '',
             nlName: '',
             nlDiscription: '',
-            image: null
+            image: null,
+            router: useRouter(),
         };
     },
     async mounted() {
         if (this.ratableid) {
             this.ratable = await this.service.getRatable(this.topicid, this.ratableid);
+            if(this.ratable.error) {
+                this.router.push({ name: 'login' });
+            }
             this.image = this.ratable.image;
         }
     },
@@ -90,8 +94,10 @@ export default {
                 );
                 const response = await this.service.updateRatable(this.topicid, this.ratableid, formdata);
                 if (response.status !== 200) {
-                    allert('Looks like you tried to do something you are not allowed to do or something went wrong');
-                    this.$router.push({ name: 'login' });
+                    this.router.push({ name: 'login' });
+                }
+                else{
+                    this.router.push({ name: 'topic', params: { id: this.topicid } });
                 }
             } else {
                 const formdata = this.toFormdata(
@@ -102,11 +108,13 @@ export default {
                 );
                 const response = await this.service.createRatable(this.topicid, formdata);
                 if (response.status !== 201 ) {
-                    allert('Looks like you tried to do something you are not allowed to do or something went wrong');
                     this.router.push({ name: 'login' });
                 }
+                else{
+                    this.router.push({ name: 'topic', params: { id: this.topicid } });
+                }
             }
-            this.$router.push({ name: 'topic', params: { id: this.topicid } });
+            
         },
         filechange(e) {
             const reader = new FileReader();

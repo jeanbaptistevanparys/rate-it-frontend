@@ -4,13 +4,13 @@
             <div>
                 <h2>Ratables</h2>
                 <button class="delete" v-if="this.owner" @click="deletetopic">Delete</button>
-                <button class="create" v-if="this.owner"  @click="createratable">Create</button>
+                <button class="create" v-if="this.owner" @click="createratable">Create</button>
             </div>
             <input class="search" type="text" placeholder="Search ratables" v-model="filter" @input="reloadRatables">
         </div>
         <Ratable :owner="this.owner" v-for="ratable in ratables" :key="ratable.id" :ratable="ratable" :topic="this.topic"
             @rate="rate" @unrate="unrate" @editratable="editratable" @deleteratable="deleteratable" />
-        <ratable-pagination v-model:page="page" @previous="setPage" @next="setPage"/>
+        <ratable-pagination v-model:page="page" @previous="setPage" @next="setPage" />
     </div>
 </template>
 <script>
@@ -68,11 +68,17 @@ export default {
             this.page = page;
         },
         async rate(emit) {
-            await this.service.rate(this.topic, emit.ratable.id, emit.score);
+            const response = await this.service.rate(this.topic, emit.ratable.id, emit.score);
+            if (response.status === 401) {
+                this.router.push({ name: 'login' });
+            }
             await this.reloadRatables();
         },
         async unrate(emit) {
-            await this.service.unrate(this.topic, emit.ratable.id, emit.rating.id);
+            const response = await this.service.unrate(this.topic, emit.ratable.id, emit.rating.id);
+            if (response.status === 401) {
+                this.router.push({ name: 'login' });
+            }
             await this.reloadRatables();
         },
         async reloadRatables() {
@@ -84,7 +90,10 @@ export default {
 
         },
         async deleteratable(id) {
-            await this.service.deleteRatable(this.topic, id);
+            const response = await this.service.deleteRatable(this.topic, id);
+            if (response.status === 401) {
+                this.router.push({ name: 'login' });
+            }
             await this.reloadRatables();
         },
         editratable(id) {
@@ -96,11 +105,11 @@ export default {
         async deletetopic() {
             const response = this.TopicService.deleteTopic(this.topic);
             if (response.status !== 200) {
-                alert('you may have tried to delete a topic that is not yours');
                 this.router.push({ name: 'login' });
             }
-            else
-            this.router.push({ name: 'home', params: { lang: this.lang } });
+            else {
+                this.router.push({ name: 'home', params: { lang: this.lang } });
+            }
         }
     },
 };
