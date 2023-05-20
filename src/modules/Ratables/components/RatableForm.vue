@@ -1,7 +1,7 @@
 <template>
     <article class="ratable-form">
         <h3>Create or edit ratable</h3>
-        <form v-if="ratable === null" @submit.prevent>
+        <form v-if="ratable === null" @submit="handelsubmision">
             <div>
                 <div>
                     <h4>English</h4>
@@ -10,28 +10,28 @@
                     </textarea>
                 </div>
                 <div>
-                    <h4>Nederlands</h4>
+                    <h4>Dutch</h4>
                     <input v-model="nlName" type="text" placeholder="Enter name" required>
                     <textarea v-model="nlDiscription" placeholder="Enter description" name="discription" cols="30" rows="10" required>
                     </textarea>
                 </div>
             </div>
             <div>
-                <input v-on:change="filechange" type="file" >
-                <input @click="handelsubmision" type="submit" value="Submit">
+                <input v-on:change="filechange" type="file" required>
+                <input type="submit" value="Submit">
             </div>
         </form>
-        <form v-else @submit.prevent>
+        <form v-else @submit="handelsubmision">
             <div>
                 <div>
-                    <h4>{{ this.ratable.ratable_language[0].language === 'en' ? 'English' : 'Nederlands' }}</h4>
+                    <h4>{{ this.ratable.ratable_language[0].language === 'en' ? 'English' : 'Dutch' }}</h4>
                     <input type="text" v-model="this.ratable.ratable_language[0].name" required>
                     <textarea name="discription" v-model="this.ratable.ratable_language[0].description" cols="30" rows="10"
                         required>
                     </textarea>
                 </div>
                 <div>
-                    <h4>{{ this.ratable.ratable_language[1].language === 'en' ? 'English' : 'Nederlands' }}</h4>
+                    <h4>{{ this.ratable.ratable_language[1].language === 'en' ? 'English' : 'Dutch' }}</h4>
                     <input type="text" v-model="this.ratable.ratable_language[1].name" required>
                     <textarea name="discription" v-model="this.ratable.ratable_language[1].description" cols="30" rows="10"
                         required>
@@ -40,7 +40,7 @@
             </div>
             <div>
                 <input v-on:change="filechange" type="file" accept="image/*">
-                <input @click="handelsubmision" type="submit" value="Submit">
+                <input type="submit" value="Submit">
             </div>
         </form>
     </article>
@@ -84,7 +84,8 @@ export default {
         }
     },
     methods: {
-        async handelsubmision() {
+        async handelsubmision(e) {
+            e.preventDefault();
             if (this.ratableid) {
                 const formdata = this.toFormdata(
                     this.ratable.ratable_language[0].language === 'en' ? this.ratable.ratable_language[0].name : this.ratable.ratable_language[1].name,
