@@ -1,6 +1,6 @@
 <template>
     <div class="ratables">
-        <div>
+        <div class="topbar">
             <div>
                 <h2>Ratables</h2>
                 <button class="delete" v-if="this.owner" @click="deletetopic">Delete</button>
@@ -8,9 +8,12 @@
             </div>
             <input class="search" type="text" placeholder="Search ratables" v-model="filter" @input="reloadRatables">
         </div>
-        <Ratable :owner="this.owner" v-for="ratable in ratables" :key="ratable.id" :ratable="ratable" :topic="this.topic"
+        <div v-if="!loading">
+            <Ratable :owner="this.owner" v-for="ratable in ratables" :key="ratable.id" :ratable="ratable" :topic="this.topic"
             @rate="rate" @unrate="unrate" @editratable="editratable" @deleteratable="deleteratable" />
-        <ratable-pagination v-model:page="page" @previous="setPage" @next="setPage" />
+            <ratable-pagination v-if="paging" class="pagination" v-model:page="page" v-model:isNext="next" v-model:isPrevious="previous" @previous="setPage" @next="setPage" />
+        </div>
+        <div v-else class="loading"></div>
     </div>
 </template>
 <script>
@@ -43,6 +46,10 @@ export default {
             router: new useRouter(),
             filter: '',
             page: 1,
+            loading: true,
+            paging: false,
+            previous: false,
+            next: false,
         };
     },
     async mounted() {
@@ -84,9 +91,16 @@ export default {
         async reloadRatables() {
             const data = await this.service
                 .setPage(this.page)
-                .getRatables(this.topic, this.lang, this.filter, this.page);
+                .getRatables(this.topic, this.lang, this.filter);
             this.owner = data.is_owner;
             this.ratables = data.ratables.data;
+            console.log(data.ratables);
+            if (data.ratables.last_page > 1) this.paging = true;
+            if (data.ratables.current_page != 1) this.previous = true;
+            else this.previous = false;
+            if (data.ratables.current_page != data.ratables.last_page) this.next = true;
+            else this.next = false;
+            this.loading = false;
 
         },
         async deleteratable(id) {

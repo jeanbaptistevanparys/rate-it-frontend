@@ -9,7 +9,7 @@ div.ratables {
 	height: calc(100vh - 4.5rem - 3rem); // minus header margin
 	width: 100%;
 
-	> div {
+	.topbar {
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
@@ -19,6 +19,23 @@ div.ratables {
 			flex-direction: row;
 			align-items: flex-start;
 		}
+
+		button {
+			@include constraints.button;
+			margin-left: 1rem;
+			padding-left: 2rem;
+			background-position: 0.25rem center;
+			background-repeat: no-repeat;
+			background-size: 1.5rem;
+	
+			&.delete {
+				background-image: url('../img/delete.svg');
+			}
+	
+			&.create {
+				background-image: url('../img/add.svg')
+			}
+		}
 	}
 
 	h2 {
@@ -27,23 +44,6 @@ div.ratables {
 		color: constraints.$color-rate-it-gray;
 		margin-bottom: 1rem;
 		display: inline
-	}
-
-	> div button {
-		@include constraints.button;
-		margin-left: 1rem;
-		padding-left: 2rem;
-		background-position: 0.25rem center;
-		background-repeat: no-repeat;
-		background-size: 1.5rem;
-
-		&.delete {
-			background-image: url('../img/delete.svg');
-		}
-
-		&.create {
-			background-image: url('../img/add.svg')
-		}
 	}
 
 	.search {

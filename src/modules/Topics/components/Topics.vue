@@ -4,9 +4,10 @@
         <div class="search">
             <input type="text" placeholder="Search topics" v-model="filter" @input="getTopics">
         </div>
-        <ul>
+        <ul v-if="!loading">
             <Topic v-for="topic in topics" :key="topic.id" :topic="topic" :class="{ 'selected' : parseInt(topic.id) === this.topic }"/>
         </ul>
+        <div v-else class="loading"></div>
         <button v-if="hasTopics" @click="showMore">More</button>
     </aside>
 </template>
@@ -30,16 +31,19 @@ export default {
             limit: 6,
             selectedTopic: null,
             "service": new TopicService(),
+            loading: false,
         }
     },
     methods: {
         async getTopics() {
+            this.loading = true;
             if (this.filter !== '') {
                 this.topics = await this.service.getTopics(this.filter);
             } else {
                 this.topics = [];
             }
             this.limit = 6;
+            this.loading = false;
         },
         async showMore() {
             this.limit += 3;

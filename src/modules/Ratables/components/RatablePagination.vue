@@ -1,8 +1,8 @@
 <template>
     <section class="pagination">
-        <button @click="previous">previous</button>
+        <button v-if="isPrevious" @click="previous">previous</button>
         <input type="nubmer" :value="page" @input="updatePage"/>
-        <button @click="next">next</button>
+        <button v-if="isNext" @click="next">next</button>
     </section>
 </template>
 <script>
@@ -11,6 +11,14 @@ export default {
     props: {
         page: {
             type: Number,
+            required: true
+        },
+        isNext: {
+            type: Boolean,
+            required: true
+        },
+        isPrevious: {
+            type: Boolean,
             required: true
         }
     },
@@ -25,7 +33,8 @@ export default {
             this.$emit('next', nextPage);
         },
         updatePage(event) {
-            this.$emit('update:page', event.target.value);
+            const page = parseInt(event.target.value);
+            this.$emit('update:page', page);
         }
     }
 };

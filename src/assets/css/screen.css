@@ -270,24 +270,17 @@ div.ratables {
   height: calc(100vh - 4.5rem - 3rem);
   width: 100%;
 }
-div.ratables > div {
+div.ratables .topbar {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-div.ratables > div > div {
+div.ratables .topbar > div {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
 }
-div.ratables h2 {
-  font-size: 1rem;
-  text-transform: uppercase;
-  color: rgb(118, 118, 118);
-  margin-bottom: 1rem;
-  display: inline;
-}
-div.ratables > div button {
+div.ratables .topbar button {
   padding: 0.5rem;
   border-radius: 0.75rem;
   border: none;
@@ -301,11 +294,18 @@ div.ratables > div button {
   background-repeat: no-repeat;
   background-size: 1.5rem;
 }
-div.ratables > div button.delete {
+div.ratables .topbar button.delete {
   background-image: url("../img/delete.svg");
 }
-div.ratables > div button.create {
+div.ratables .topbar button.create {
   background-image: url("../img/add.svg");
+}
+div.ratables h2 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: rgb(118, 118, 118);
+  margin-bottom: 1rem;
+  display: inline;
 }
 div.ratables .search {
   box-sizing: border-box;
