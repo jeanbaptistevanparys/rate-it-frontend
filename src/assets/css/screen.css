@@ -3,6 +3,16 @@ body {
   font-family: "Lexend", Arial, Helvetica, sans-serif;
 }
 
+.loading {
+  background-image: url("../img/loading.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-top: 2rem;
+  width: 100%;
+  background-size: 2rem;
+  height: 2rem;
+}
+
 main.login {
   display: flex;
   flex-direction: row;
@@ -457,6 +467,7 @@ article.ratable form input[type=submit].unrate {
 
 .hot-topics {
   margin-top: 3rem;
+  width: 100%;
 }
 .hot-topics h2 {
   text-transform: uppercase;

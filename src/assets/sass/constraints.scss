@@ -18,6 +18,16 @@ body {
     font-family: $font;
 }
 
+.loading {
+    background-image: url('../img/loading.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: 2rem;
+    width: 100%;
+    background-size: 2rem;
+    height: 2rem;
+}
+
 @mixin search {
     box-sizing: border-box;
     padding: 0.5rem;
